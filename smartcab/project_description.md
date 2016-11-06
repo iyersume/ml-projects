@@ -22,9 +22,9 @@ This project uses the following software and Python libraries:
 
 If you do not have Python installed yet, it is highly recommended that you install the [Anaconda](http://continuum.io/downloads) distribution of Python, which already has the above packages and more included. Make sure that you select the Python 2.7 installer and not the Python 3.x installer. `pygame` can then be installed using one of the following commands:
 
-Mac:  `conda install -c https://conda.anaconda.org/quasiben pygame`  
-Windows: `conda install -c https://conda.anaconda.org/tlatorre pygame`  
-Linux:  `conda install -c https://conda.anaconda.org/prkrekel pygame`  
+Mac:  `conda install -c https://conda.anaconda.org/quasiben pygame`
+Windows: `conda install -c https://conda.anaconda.org/tlatorre pygame`
+Linux:  `conda install -c https://conda.anaconda.org/prkrekel pygame`
 
 ## Starting the Project
 
@@ -41,12 +41,12 @@ In `/smartcab/` are the following four files:
 - **Do not modify:**
   - `environment.py`: This Python file will create the **smartcab** environment.
   - `planner.py`: This Python file creates a high-level planner for the agent to follow towards a set goal.
-  - `simulation.py`: This Python file creates the simulation and graphical user interface. 
+  - `simulation.py`: This Python file creates the simulation and graphical user interface.
 
 ### Running the Code
 In a terminal or command window, navigate to the top-level project directory `smartcab/` (that contains the two project directories) and run one of the following commands:
 
-`python smartcab/agent.py` or  
+`python smartcab/agent.py` or
 `python -m smartcab.agent`
 
 This will run the `agent.py` file and execute your implemented agent code into the environment. A **README** file has also been provided with the project files which may contain additional necessary information or instruction for the project. The following **Definitions** and **Tasks** slides will provide details for how the project will be completed.
@@ -54,7 +54,7 @@ This will run the `agent.py` file and execute your implemented agent code into t
 ## Definitions
 
 ### Environment
-The **smartcab** operates in an ideal, grid-like city (similar to New York City), with roads going in the North-South and East-West directions. Other vehicles will certainly be present on the road, but there will be no pedestrians to be concerned with. At each intersection there is a traffic light that either allows traffic in the North-South direction or the East-West direction. U.S. Right-of-Way rules apply: 
+The **smartcab** operates in an ideal, grid-like city (similar to New York City), with roads going in the North-South and East-West directions. Other vehicles will certainly be present on the road, but there will be no pedestrians to be concerned with. At each intersection there is a traffic light that either allows traffic in the North-South direction or the East-West direction. U.S. Right-of-Way rules apply:
 - On a green light, a left turn is permitted if there is no oncoming traffic making a right turn or coming straight through the intersection.
 - On a red light, a right turn is permitted if no oncoming traffic is approaching from your left through the intersection.
 To understand how to correctly yield to oncoming traffic when turning left, you may refer to [this official drivers? education video](https://www.youtube.com/watch?v=TW0Eq2Q-9Ac), or [this passionate exposition](https://www.youtube.com/watch?v=0EdkxI6NeuA).
@@ -105,7 +105,7 @@ Your final task for this project is to enhance your driving agent so that, after
 - Observe the driving agent?s learning and **smartcab?s** success rate, particularly during the later trials.
 - Adjust one or several of the above parameters and iterate this process.
 
-This task is complete once you have arrived at what you determine is the best combination of parameters required for your driving agent to learn successfully. 
+This task is complete once you have arrived at what you determine is the best combination of parameters required for your driving agent to learn successfully.
 
 ***QUESTION:*** _Report the different values for the parameters tuned in your basic implementation of Q-Learning. For which set of parameters does the agent perform best? How well does the final driving agent perform?_
 
