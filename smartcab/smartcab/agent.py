@@ -1,7 +1,6 @@
 from __future__ import division
 import random
 import math
-import operator
 from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
@@ -50,8 +49,8 @@ class LearningAgent(Agent):
             # self.epsilon -= 0.05
 
             # optimized learning agent
-            self.epsilon = 2 * math.exp(-0.05 * self.trial)
-            self.alpha = 0.5 * math.exp(-0.02 * self.trial)
+            self.epsilon = 3 * math.exp(-0.02 * self.trial)
+            self.alpha = 0.75 * math.exp(-0.01 * self.trial)
             self.trial += 1
 
         return None
@@ -64,13 +63,13 @@ class LearningAgent(Agent):
         # Collect data about the environment
         waypoint = self.planner.next_waypoint()  # The next waypoint
         inputs = self.env.sense(self)            # Visual input - intersection light and traffic
-        deadline = self.env.get_deadline(self)   # Remaining deadline
+        # deadline = self.env.get_deadline(self)   # Remaining deadline
 
         #########
         # TO DO #
         #########
         # Set 'state' as a tuple of relevant data for the agent
-        state = (waypoint, inputs['light'], inputs['oncoming'])
+        state = (waypoint, inputs['light'], inputs['oncoming'], inputs['left'])
         return state
 
     def get_maxQ(self, state):
@@ -114,14 +113,15 @@ class LearningAgent(Agent):
         # When not learning, choose a random action
         # When learning, choose a random action with 'epsilon' probability
         #   Otherwise, choose an action with the highest Q-value for the current state
-        if not self.learning:
-            action = random.choice(self.valid_actions)
+        if not self.learning or random.random() < self.epsilon:
+            candidate_actions = self.valid_actions
         else:
-            if random.random() < self.epsilon:
-                action = random.choice(self.valid_actions)
-            else:
-                action = max(self.Q[state].items(), key=operator.itemgetter(1))[0]
-
+            # if multiple actions have highest Q value then choose one of them
+            # randomly
+            max_q_val = self.get_maxQ(state)
+            candidate_actions = [i[0] for i in self.Q[state].items()
+                                 if i[1] == max_q_val]
+        action = random.choice(candidate_actions)
         return action
 
     def learn(self, state, action, reward):
@@ -134,7 +134,8 @@ class LearningAgent(Agent):
         #########
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
-        self.Q[state][action] += self.alpha * (reward - self.Q[state][action])
+        if self.learning:
+            self.Q[state][action] += self.alpha * (reward - self.Q[state][action])
         return None
 
     def update(self):
