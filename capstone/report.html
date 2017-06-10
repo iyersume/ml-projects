@@ -222,10 +222,10 @@
 <p>A wealth of data on travel behavior is being collected by these systems and Capital Bikeshare has made the trip logs of every trip taken in the system publically available [1]. This analysis exploits the dataset of bicycle trips made using Capital Bikeshare in order to determine how bicycle usage varies under different weather conditions and other calendar factors. We predict the number of rentals every hour considering various factors like temperature (both hot and cold), humidity, windspeed, and various other weather conditions that may affect bicycle usage. We are also able to control for how patterns of daylight and darkness affect trip behavior.</p>
 <p>These results have implications for understanding the sensitivity of bicycle usage to weather conditions and how this can affect the usefulness of bicycling as an alternative mode of travel. It is also informative for those planning or operating bikesharing systems. We'll obtain these relationships by exploring various machine learning models including linear regression, decision trees, random forest and gradient boosted trees.</p>
 <h3 id="metrics">Metrics</h3>
-<p>We'll perform the comparison of the models in terms of mean absolute error (MAE), correlation coefficient, relative absolute error (RAE), and root relative squared error (RRSE) as described by Fanaee-T et. al.[1].</p>
+<p>We'll perform the comparison of the models in terms of mean absolute error (MAE), relative absolute error (RAE), and root relative squared error (RRSE) as described by Fanaee-T et. al.[1]. Additionally, we also measure the Root Mean Squared Logarithmic Error (RMSLE) to benchmark results with Kaggle leaderboard[3].</p>
 <p><img src="images/rae.png" alt="RAE" height="35" /></p>
 <p><img src="images/rrse.png" alt="RRSE" height="35" /></p>
-<p><img src="images/cc.png" alt="Correlation Coefficient" height="35" /></p>
+<p><img src="images/rmsle.png" alt="RMSLE" height="35" /></p>
 <p>where,</p>
 <p><img src="images/spa.png" alt="SPA" height="35" /></p>
 <p><img src="images/sp.png" alt="SP" height="35" /></p>
@@ -709,12 +709,18 @@
 <p>Another observation from the plot is that bike rentals are higher when the temperature is moderately high (above the 3rd quartile). This is consistently seen throughout all hours for working and non-working days. This also makes sense since riding a bike would not be preferred on colder days/nights.</p>
 <p>Thus, we can conlude that 'Temp', 'Hours', and 'workingday' are important features that we'll see during our model training.</p>
 <h3 id="algorithms-and-techniques">Algorithms and Techniques</h3>
-<p>We'll be exploring various learning techniques for this regression problem:</p>
+<p>We'll be exploring various learning techniques for this regression problem, as described below.</p>
 <ul>
-<li>Linear Regression</li>
-<li>Decision Tree</li>
-<li>Random forest (bagging)</li>
-<li>Gradient Boosted Regression Tree (boosting)</li>
+<li><p><em>Linear Regression</em>: Linear regression is the most basic type of regression and commonly used predictive analysis. The overall idea of regression is to examine two things: (1) does a set of predictor variables do a good job in predicting an outcome variable? Is the model using the predictors accounting for the variability in the changes in the dependent variable? (2) Which variables in particular are significant predictors of the dependent variable? And in what way do they - indicated by the magnitude and sign of the beta estimates - impact the dependent variable? These regression estimates are used to explain the relationship between one dependent variable and one or more independent variables.</p></li>
+<li><p><em>Decision Tree</em>: A decision tree is a machine learning algorithm that partitions the data into subsets. The partitioning process starts with a binary split and continues until no further splits can be made. Various branches of variable length are formed. Decision trees are popular among non-statisticians as they produce a model that is very easy to interpret. Each leaf node is presented as an if/then rule. Cases that satisfy the if/then statement are placed in the node. Further trees can handle data of different types, including continuous, categorical, ordinal, and binary. Transformations of the data are not required.</p></li>
+<li><p><em>Random forest (bagging)</em>: Random Forest (RF) is a representative of the state-of-the-art ensemble methods. It is an extension of Bagging, where the bootstrap sampling is used to obtain data subsets for training multiple base learners. Bagging adopts the most popular strategies for aggregating the outputs of the base learners, that is, voting for classification and averaging for regression. Random forest extends this by incorporating randomized feature selection. During the construction of a component decision tree, at each step of split selection, RF first randomly selects a subset of features, and then carries out the conventional split selection procedure within the selected feature subset.</p></li>
+<li><p><em>Gradient Boosted Regression Tree (boosting)</em>: The term boosting refers to a family of algorithms that are able to convert weak learners to strong learners. Intuitively, a weak learner is just slightly better than random guess, while a strong learner is very close to perfect performance. Gradient boosting builds an ensemble of trees one-by-one, then the predictions of the individual trees are summed. The next decision tree tries to cover the discrepancy between the target and the current ensemble prediction by reconstructing the residual.</p></li>
+</ul>
+<h3 id="benchmarks">Benchmarks</h3>
+<p>We employ two benchmarks to measure the performance of our models:</p>
+<ul>
+<li>Mean value benchmark: The mean of the training data is used as the prediction.</li>
+<li>Kaggle leaderboard: This dataset was used as a Kaggle competition and contains various submissions of varying quality. The metric used by the competition was Root Mean Squared Logarithmic Error (RMSLE), which has been used in this study. We will compare our model RMSLE values with the top 10 scores in Kaggle leaderboard.</li>
 </ul>
 <h2 id="iii.-methodology">III. Methodology</h2>
 <h3 id="data-preprocessing">Data Preprocessing</h3>
@@ -870,6 +876,38 @@ For 65 trees is -0.182103770565
 <h2 id="iv.-results">IV. Results</h2>
 <h3 id="model-evaluation-and-validation">Model Evaluation and Validation</h3>
 <p>In this section we provide results and insights into each model.</p>
+<h4 id="benchmark">Benchmark</h4>
+<pre><code>Mean Value Benchmark
+-----------------------------------------------------------------
+Summary of predictions for test data:
+
+         Prediction
+count  3476
+mean   189.1888
+std    5.685160e-14
+min    189.1888
+25%    189.1888
+50%    189.1888
+75%    189.1888
+max    189.1888
+
+-----------------------------------------------------------------
+MAE for training data:  142.338263153
+MAE for test data:      142.369290925
+
+-----------------------------------------------------------------
+RAE for training data:  1.0
+RAE for test data:      0.998063562872
+
+-----------------------------------------------------------------
+RRSE for training data: 1.0
+RRSE for test data:     1.00005716883
+
+-----------------------------------------------------------------
+RMSLE for training data: 1.57116953633
+RMSLE for test data:     1.5631424794
+
+-----------------------------------------------------------------</code></pre>
 <h4 id="linear-regression">Linear Regression</h4>
 <pre><code>----------------------------------------------
 Linear Regression Model details:
@@ -904,14 +942,14 @@ RRSE for training data: 0.313859295957
 RRSE for test data:     0.317508260403
 
 -----------------------------------------------------------------
-CC for training data:   0.828348632183
-CC for test data:       0.826556976405
+RMSLE for training data:    0.831373944587
+RMSLE for test data:        0.821011547446
 
 -----------------------------------------------------------------</code></pre>
 <p>Analysis for Linear Regression:</p>
 <ul>
 <li>Linear regression prediction includes negative output (which is not valid for <code>cnt</code>)</li>
-<li>R2 is close to 0.5, which implies that only 50% of the variance in the data is modeled by the regressor.</li>
+<li><span class="LaTeX">$R^2$</span> is close to 0.5, which implies that only 50% of the variance in the data is modeled by the regressor.</li>
 <li>Next step: Try other models to predict <code>cnt</code>, like Decision Tree to model greater variability in the data.</li>
 </ul>
 <h4 id="decision-tree">Decision tree:</h4>
@@ -949,14 +987,15 @@ RRSE for training data: 0.0132821892645
 RRSE for test data:     0.103842051796
 
 -----------------------------------------------------------------
-CC for training data:   0.993336714217
-CC for test data:       0.947327629461
+RMSLE for training data: 0.120734610962
+RMSLE for test data:     0.436261876945
 
 -----------------------------------------------------------------</code></pre>
-<p>Let's visualize the decision tree to get an idea of how it splits on features: <img src="images/dtree.png" alt="Decision Tree" width="800" /></p>
+<p>Let's visualize the decision tree to get an idea of how it splits on features:</p>
+<p><img src="images/dtree.png" alt="Decision Tree" width="800" /></p>
 <p>Analysis for Decision Tree:</p>
 <ul>
-<li>Performance for decision tree is much better than linear regression (higher CC and lower error)</li>
+<li>Performance for decision tree is much better than linear regression (lower error)</li>
 <li>The top of the tree contains nodes that primarily use <code>hr</code>, <code>temp</code>, <code>workingday</code> as the split features. This indicates the importance of these particular features.</li>
 <li>There are signs of overfitting since the training error is low but the test error is still reasonably high. We can use ensemble techniques to overcome the overfitting effects.</li>
 </ul>
@@ -998,8 +1037,9 @@ RRSE for training data: 0.029217618587
 RRSE for test data:     0.0605477754712
 
 -----------------------------------------------------------------
-CC for training data:   0.98529362356
-CC for test data:       0.96935713163
+RMSLE for training data:  0.411950774982
+RMSLE for test data:      0.50440361128
+
 
 -----------------------------------------------------------------</code></pre>
 <p>Analysis for Gradient Boosted Trees:</p>
@@ -1030,20 +1070,20 @@ min       1.000000
 max     918.000000
 
 -----------------------------------------------------------------
-MAE for training data:      10.3020930734
+MAE for training data:  10.3020930734
 MAE for test data:      26.5261795167
 
 -----------------------------------------------------------------
-RAE for training data:      0.0725134390427
+RAE for training data:  0.0725134390427
 RAE for test data:      0.184691077717
 
 -----------------------------------------------------------------
-RRSE for training data:     0.00912075968267
+RRSE for training data: 0.00912075968267
 RRSE for test data:     0.058918498909
 
 -----------------------------------------------------------------
-CC for training data:       0.995516131278
-CC for test data:       0.970138513161
+RMSLE for training data: 0.166582047386
+RMSLE for test data:     0.353082360615
 
 -----------------------------------------------------------------</code></pre>
 <h3 id="justification">Justification</h3>
@@ -1055,37 +1095,44 @@ CC for test data:       0.970138513161
 <th>mae</th>
 <th>rae</th>
 <th>rrse</th>
-<th>cc</th>
+<th>rmsle</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td>Mean Value benchmark</td>
+<td>142.37</td>
+<td>0.9980</td>
+<td>1.0000</td>
+<td>1.5631</td>
+</tr>
+<tr class="even">
 <td>Linear regression</td>
 <td>76.726</td>
 <td>0.5403</td>
 <td>0.3248</td>
-<td>0.8217</td>
+<td>0.8210</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Decision Tree</td>
 <td>35.177</td>
 <td>0.2477</td>
 <td>0.1177</td>
-<td>0.9410</td>
+<td>0.4362</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Gradient Boosted Tree</td>
 <td>29.9496</td>
 <td>0.2085</td>
 <td>0.06054</td>
-<td>0.9693</td>
+<td>0.5044</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Random Forest</td>
 <td>26.63</td>
 <td>0.1876</td>
 <td>0.06549</td>
-<td>0.9667</td>
+<td>0.3530</td>
 </tr>
 </tbody>
 </table>
@@ -1094,6 +1141,7 @@ CC for test data:       0.970138513161
 <p>We can see from the comparison figure that linear regression performs poorly when compared to our ideal model. The points have high variability along the x-axis, with no prediction going over about 600. The linear model also makes the egregious mistake of predicting negative counts (min value of about -200).</p>
 <p>Compared to the linear model, decision tree makes good predictions. Most of the points lie along the diagonal, but have considerable variability around that line. The test data points have higher variance than train, again an indicative of overfitting.</p>
 <p>Random forest and Gradient Boosted Trees show better performance than Decision Tree with lower variability around the diagonal line. The train and test performance is comparable in either case. The boosting method, however, also falls prey to predicting negative counts for low cardinality rentals. Considering this conspicuous inaccuracy, we can conclude that random forest is the best model for this problem among the four tried in this work.</p>
+<p>Comparing these results to the 'Mean Value benchmark' established earlier, it's clear that each model is doing better than a NULL model. Further, looking at the Kaggle leaderboard, Random Forest's RMSLE value of <code>0.3530</code> would figure in the top 10 rankings. The best value on the leaderboard is <code>0.33757</code> and the tenth finish value is <code>0.35784</code>. Thus we can say with high confidence that the RF model we built is a good predictor for this problem set.</p>
 <!-- ()() -->
 <h2 id="v.-conclusion">V. Conclusion</h2>
 <h3 id="free-form-visualization">Free-Form Visualization</h3>
@@ -1107,7 +1155,7 @@ CC for test data:       0.970138513161
 <p>The <code>year</code> feature being important is surprising, but understandable since this is data for limited years - there could be year-specific trends, which might get washed out if the analysis is run on multiple years. Re-running this analysis on a bigger dataset would be an interesting exercise.</p>
 <p>An additional analysis that was outside the scope of this study is to embed the data, with metro and other transportation information. Bike rentals are expected to have a strong correlation with the availability of public transportation systems. (Example: do bike rentals increase in evening if public transportation becomes less frequent?).</p>
 <h3 id="references">References</h3>
-<p>[1] Fanaee-T, H. &amp; Gama, J. Prog Artif Intell (2014) 2: 113. doi:10.1007/s13748-013-0040-3 [2] Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.</p>
+<p>[1] Fanaee-T, H. &amp; Gama, J. Prog Artif Intell (2014) 2: 113. doi:10.1007/s13748-013-0040-3 [2] Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011. [3] Bike sharing Kaggle competition: https://www.kaggle.com/c/bike-sharing-demand#evaluation</p>
 <hr />
 </body>
 </html>
