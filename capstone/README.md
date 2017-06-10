@@ -2,12 +2,20 @@
 ## Specializations
 ## Project: Capstone Proposal and Capstone Project
 
-**Note**
+Files in project submission:
 
-The Capstone is a two-staged project. The first is the proposal component, where you can receive valuable feedback about your project idea, design, and proposed solution. This must be completed prior to your implementation and submitting for the capstone project. 
+1. Report:
+- .md: contains the source of the report
+- .html: HTML export of the report. This is the recommended format to
+view the report
+- .pdf: PDF export of the report. The pdf export is reasonable except for some
+figures that go beyond the right margin. HTML format is recommended for this
+reason.
 
-You can find the [capstone proposal rubric here](https://review.udacity.com/#!/rubrics/410/view), and the [capstone project rubric here](https://review.udacity.com/#!/rubrics/108/view). Please ensure that you are following directions correctly when submitting these two stages which encapsulate your capstone.
+2. Code:
+All code and created images are in Bike-sharing.ipynb. This is an ipython
+notebook that can be viewed by starting a Jupyter server.
 
-You will find an `open_projects` folder in these files. This will be where pre-curated capstone projects are available, should you choose to work on a project already partially designed for you. 
-
-Please email [machine-support@udacity.com](mailto:machine-support@udacity.com) if you have any questions.
+3. Data:
+All necessary data is available in hour.csv and is imported in the Jupyter
+notebook.
