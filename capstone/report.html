@@ -1,0 +1,1113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc2.css" type="text/css" />
+  <script type="text/javascript">/*<![CDATA[*/
+  /*
+  LaTeXMathML.js from http://math.etsu.edu/LaTeXMathML/
+  Adapted by Jeff Knisely and Douglas Woodall from ASCIIMathML.js v. 1.4.7,
+  (c) 2005 Peter Jipsen http://www.chapman.edu/~jipsen.
+  Released under the GNU General Public License version 2 or later.
+  See the GNU General Public License (at http://www.gnu.org/copyleft/gpl.html)
+  for more details.
+  */
+  var checkForMathML=true;var notifyIfNoMathML=true;var alertIfNoMathML=false;var mathcolor="";var mathfontfamily="";var showasciiformulaonhover=true;var isIE=document.createElementNS==null;if(document.getElementById==null)
+  alert("This webpage requires a recent browser such as \nMozilla/Netscape 7+ or Internet Explorer 6+MathPlayer")
+  function AMcreateElementXHTML(t){if(isIE)return document.createElement(t);else return document.createElementNS("http://www.w3.org/1999/xhtml",t);}
+  function AMnoMathMLNote(){var nd=AMcreateElementXHTML("h3");nd.setAttribute("align","center")
+  nd.appendChild(AMcreateElementXHTML("p"));nd.appendChild(document.createTextNode("To view the "));var an=AMcreateElementXHTML("a");an.appendChild(document.createTextNode("LaTeXMathML"));an.setAttribute("href","http://www.maths.nott.ac.uk/personal/drw/lm.html");nd.appendChild(an);nd.appendChild(document.createTextNode(" notation use Internet Explorer 6+"));an=AMcreateElementXHTML("a");an.appendChild(document.createTextNode("MathPlayer"));an.setAttribute("href","http://www.dessci.com/en/products/mathplayer/download.htm");nd.appendChild(an);nd.appendChild(document.createTextNode(" or Netscape/Mozilla/Firefox"));nd.appendChild(AMcreateElementXHTML("p"));return nd;}
+  function AMisMathMLavailable(){if(navigator.appName.slice(0,8)=="Netscape")
+  if(navigator.appVersion.slice(0,1)>="5")return null;else return AMnoMathMLNote();else if(navigator.appName.slice(0,9)=="Microsoft")
+  try{var ActiveX=new ActiveXObject("MathPlayer.Factory.1");return null;}catch(e){return AMnoMathMLNote();}
+  else return AMnoMathMLNote();}
+  var AMcal=[0xEF35,0x212C,0xEF36,0xEF37,0x2130,0x2131,0xEF38,0x210B,0x2110,0xEF39,0xEF3A,0x2112,0x2133,0xEF3B,0xEF3C,0xEF3D,0xEF3E,0x211B,0xEF3F,0xEF40,0xEF41,0xEF42,0xEF43,0xEF44,0xEF45,0xEF46];var AMfrk=[0xEF5D,0xEF5E,0x212D,0xEF5F,0xEF60,0xEF61,0xEF62,0x210C,0x2111,0xEF63,0xEF64,0xEF65,0xEF66,0xEF67,0xEF68,0xEF69,0xEF6A,0x211C,0xEF6B,0xEF6C,0xEF6D,0xEF6E,0xEF6F,0xEF70,0xEF71,0x2128];var AMbbb=[0xEF8C,0xEF8D,0x2102,0xEF8E,0xEF8F,0xEF90,0xEF91,0x210D,0xEF92,0xEF93,0xEF94,0xEF95,0xEF96,0x2115,0xEF97,0x2119,0x211A,0x211D,0xEF98,0xEF99,0xEF9A,0xEF9B,0xEF9C,0xEF9D,0xEF9E,0x2124];var CONST=0,UNARY=1,BINARY=2,INFIX=3,LEFTBRACKET=4,RIGHTBRACKET=5,SPACE=6,UNDEROVER=7,DEFINITION=8,TEXT=9,BIG=10,LONG=11,STRETCHY=12,MATRIX=13;var AMsqrt={input:"\\sqrt",tag:"msqrt",output:"sqrt",ttype:UNARY},AMroot={input:"\\root",tag:"mroot",output:"root",ttype:BINARY},AMfrac={input:"\\frac",tag:"mfrac",output:"/",ttype:BINARY},AMover={input:"\\stackrel",tag:"mover",output:"stackrel",ttype:BINARY},AMatop={input:"\\atop",tag:"mfrac",output:"",ttype:INFIX},AMchoose={input:"\\choose",tag:"mfrac",output:"",ttype:INFIX},AMsub={input:"_",tag:"msub",output:"_",ttype:INFIX},AMsup={input:"^",tag:"msup",output:"^",ttype:INFIX},AMtext={input:"\\mathrm",tag:"mtext",output:"text",ttype:TEXT},AMmbox={input:"\\mbox",tag:"mtext",output:"mbox",ttype:TEXT};var AMsymbols=[{input:"\\alpha",tag:"mi",output:"\u03B1",ttype:CONST},{input:"\\beta",tag:"mi",output:"\u03B2",ttype:CONST},{input:"\\gamma",tag:"mi",output:"\u03B3",ttype:CONST},{input:"\\delta",tag:"mi",output:"\u03B4",ttype:CONST},{input:"\\epsilon",tag:"mi",output:"\u03B5",ttype:CONST},{input:"\\varepsilon",tag:"mi",output:"\u025B",ttype:CONST},{input:"\\zeta",tag:"mi",output:"\u03B6",ttype:CONST},{input:"\\eta",tag:"mi",output:"\u03B7",ttype:CONST},{input:"\\theta",tag:"mi",output:"\u03B8",ttype:CONST},{input:"\\vartheta",tag:"mi",output:"\u03D1",ttype:CONST},{input:"\\iota",tag:"mi",output:"\u03B9",ttype:CONST},{input:"\\kappa",tag:"mi",output:"\u03BA",ttype:CONST},{input:"\\lambda",tag:"mi",output:"\u03BB",ttype:CONST},{input:"\\mu",tag:"mi",output:"\u03BC",ttype:CONST},{input:"\\nu",tag:"mi",output:"\u03BD",ttype:CONST},{input:"\\xi",tag:"mi",output:"\u03BE",ttype:CONST},{input:"\\pi",tag:"mi",output:"\u03C0",ttype:CONST},{input:"\\varpi",tag:"mi",output:"\u03D6",ttype:CONST},{input:"\\rho",tag:"mi",output:"\u03C1",ttype:CONST},{input:"\\varrho",tag:"mi",output:"\u03F1",ttype:CONST},{input:"\\varsigma",tag:"mi",output:"\u03C2",ttype:CONST},{input:"\\sigma",tag:"mi",output:"\u03C3",ttype:CONST},{input:"\\tau",tag:"mi",output:"\u03C4",ttype:CONST},{input:"\\upsilon",tag:"mi",output:"\u03C5",ttype:CONST},{input:"\\phi",tag:"mi",output:"\u03C6",ttype:CONST},{input:"\\varphi",tag:"mi",output:"\u03D5",ttype:CONST},{input:"\\chi",tag:"mi",output:"\u03C7",ttype:CONST},{input:"\\psi",tag:"mi",output:"\u03C8",ttype:CONST},{input:"\\omega",tag:"mi",output:"\u03C9",ttype:CONST},{input:"\\Gamma",tag:"mo",output:"\u0393",ttype:CONST},{input:"\\Delta",tag:"mo",output:"\u0394",ttype:CONST},{input:"\\Theta",tag:"mo",output:"\u0398",ttype:CONST},{input:"\\Lambda",tag:"mo",output:"\u039B",ttype:CONST},{input:"\\Xi",tag:"mo",output:"\u039E",ttype:CONST},{input:"\\Pi",tag:"mo",output:"\u03A0",ttype:CONST},{input:"\\Sigma",tag:"mo",output:"\u03A3",ttype:CONST},{input:"\\Upsilon",tag:"mo",output:"\u03A5",ttype:CONST},{input:"\\Phi",tag:"mo",output:"\u03A6",ttype:CONST},{input:"\\Psi",tag:"mo",output:"\u03A8",ttype:CONST},{input:"\\Omega",tag:"mo",output:"\u03A9",ttype:CONST},{input:"\\frac12",tag:"mo",output:"\u00BD",ttype:CONST},{input:"\\frac14",tag:"mo",output:"\u00BC",ttype:CONST},{input:"\\frac34",tag:"mo",output:"\u00BE",ttype:CONST},{input:"\\frac13",tag:"mo",output:"\u2153",ttype:CONST},{input:"\\frac23",tag:"mo",output:"\u2154",ttype:CONST},{input:"\\frac15",tag:"mo",output:"\u2155",ttype:CONST},{input:"\\frac25",tag:"mo",output:"\u2156",ttype:CONST},{input:"\\frac35",tag:"mo",output:"\u2157",ttype:CONST},{input:"\\frac45",tag:"mo",output:"\u2158",ttype:CONST},{input:"\\frac16",tag:"mo",output:"\u2159",ttype:CONST},{input:"\\frac56",tag:"mo",output:"\u215A",ttype:CONST},{input:"\\frac18",tag:"mo",output:"\u215B",ttype:CONST},{input:"\\frac38",tag:"mo",output:"\u215C",ttype:CONST},{input:"\\frac58",tag:"mo",output:"\u215D",ttype:CONST},{input:"\\frac78",tag:"mo",output:"\u215E",ttype:CONST},{input:"\\pm",tag:"mo",output:"\u00B1",ttype:CONST},{input:"\\mp",tag:"mo",output:"\u2213",ttype:CONST},{input:"\\triangleleft",tag:"mo",output:"\u22B2",ttype:CONST},{input:"\\triangleright",tag:"mo",output:"\u22B3",ttype:CONST},{input:"\\cdot",tag:"mo",output:"\u22C5",ttype:CONST},{input:"\\star",tag:"mo",output:"\u22C6",ttype:CONST},{input:"\\ast",tag:"mo",output:"\u002A",ttype:CONST},{input:"\\times",tag:"mo",output:"\u00D7",ttype:CONST},{input:"\\div",tag:"mo",output:"\u00F7",ttype:CONST},{input:"\\circ",tag:"mo",output:"\u2218",ttype:CONST},{input:"\\bullet",tag:"mo",output:"\u2022",ttype:CONST},{input:"\\oplus",tag:"mo",output:"\u2295",ttype:CONST},{input:"\\ominus",tag:"mo",output:"\u2296",ttype:CONST},{input:"\\otimes",tag:"mo",output:"\u2297",ttype:CONST},{input:"\\bigcirc",tag:"mo",output:"\u25CB",ttype:CONST},{input:"\\oslash",tag:"mo",output:"\u2298",ttype:CONST},{input:"\\odot",tag:"mo",output:"\u2299",ttype:CONST},{input:"\\land",tag:"mo",output:"\u2227",ttype:CONST},{input:"\\wedge",tag:"mo",output:"\u2227",ttype:CONST},{input:"\\lor",tag:"mo",output:"\u2228",ttype:CONST},{input:"\\vee",tag:"mo",output:"\u2228",ttype:CONST},{input:"\\cap",tag:"mo",output:"\u2229",ttype:CONST},{input:"\\cup",tag:"mo",output:"\u222A",ttype:CONST},{input:"\\sqcap",tag:"mo",output:"\u2293",ttype:CONST},{input:"\\sqcup",tag:"mo",output:"\u2294",ttype:CONST},{input:"\\uplus",tag:"mo",output:"\u228E",ttype:CONST},{input:"\\amalg",tag:"mo",output:"\u2210",ttype:CONST},{input:"\\bigtriangleup",tag:"mo",output:"\u25B3",ttype:CONST},{input:"\\bigtriangledown",tag:"mo",output:"\u25BD",ttype:CONST},{input:"\\dag",tag:"mo",output:"\u2020",ttype:CONST},{input:"\\dagger",tag:"mo",output:"\u2020",ttype:CONST},{input:"\\ddag",tag:"mo",output:"\u2021",ttype:CONST},{input:"\\ddagger",tag:"mo",output:"\u2021",ttype:CONST},{input:"\\lhd",tag:"mo",output:"\u22B2",ttype:CONST},{input:"\\rhd",tag:"mo",output:"\u22B3",ttype:CONST},{input:"\\unlhd",tag:"mo",output:"\u22B4",ttype:CONST},{input:"\\unrhd",tag:"mo",output:"\u22B5",ttype:CONST},{input:"\\sum",tag:"mo",output:"\u2211",ttype:UNDEROVER},{input:"\\prod",tag:"mo",output:"\u220F",ttype:UNDEROVER},{input:"\\bigcap",tag:"mo",output:"\u22C2",ttype:UNDEROVER},{input:"\\bigcup",tag:"mo",output:"\u22C3",ttype:UNDEROVER},{input:"\\bigwedge",tag:"mo",output:"\u22C0",ttype:UNDEROVER},{input:"\\bigvee",tag:"mo",output:"\u22C1",ttype:UNDEROVER},{input:"\\bigsqcap",tag:"mo",output:"\u2A05",ttype:UNDEROVER},{input:"\\bigsqcup",tag:"mo",output:"\u2A06",ttype:UNDEROVER},{input:"\\coprod",tag:"mo",output:"\u2210",ttype:UNDEROVER},{input:"\\bigoplus",tag:"mo",output:"\u2A01",ttype:UNDEROVER},{input:"\\bigotimes",tag:"mo",output:"\u2A02",ttype:UNDEROVER},{input:"\\bigodot",tag:"mo",output:"\u2A00",ttype:UNDEROVER},{input:"\\biguplus",tag:"mo",output:"\u2A04",ttype:UNDEROVER},{input:"\\int",tag:"mo",output:"\u222B",ttype:CONST},{input:"\\oint",tag:"mo",output:"\u222E",ttype:CONST},{input:":=",tag:"mo",output:":=",ttype:CONST},{input:"\\lt",tag:"mo",output:"<",ttype:CONST},{input:"\\gt",tag:"mo",output:">",ttype:CONST},{input:"\\ne",tag:"mo",output:"\u2260",ttype:CONST},{input:"\\neq",tag:"mo",output:"\u2260",ttype:CONST},{input:"\\le",tag:"mo",output:"\u2264",ttype:CONST},{input:"\\leq",tag:"mo",output:"\u2264",ttype:CONST},{input:"\\leqslant",tag:"mo",output:"\u2264",ttype:CONST},{input:"\\ge",tag:"mo",output:"\u2265",ttype:CONST},{input:"\\geq",tag:"mo",output:"\u2265",ttype:CONST},{input:"\\geqslant",tag:"mo",output:"\u2265",ttype:CONST},{input:"\\equiv",tag:"mo",output:"\u2261",ttype:CONST},{input:"\\ll",tag:"mo",output:"\u226A",ttype:CONST},{input:"\\gg",tag:"mo",output:"\u226B",ttype:CONST},{input:"\\doteq",tag:"mo",output:"\u2250",ttype:CONST},{input:"\\prec",tag:"mo",output:"\u227A",ttype:CONST},{input:"\\succ",tag:"mo",output:"\u227B",ttype:CONST},{input:"\\preceq",tag:"mo",output:"\u227C",ttype:CONST},{input:"\\succeq",tag:"mo",output:"\u227D",ttype:CONST},{input:"\\subset",tag:"mo",output:"\u2282",ttype:CONST},{input:"\\supset",tag:"mo",output:"\u2283",ttype:CONST},{input:"\\subseteq",tag:"mo",output:"\u2286",ttype:CONST},{input:"\\supseteq",tag:"mo",output:"\u2287",ttype:CONST},{input:"\\sqsubset",tag:"mo",output:"\u228F",ttype:CONST},{input:"\\sqsupset",tag:"mo",output:"\u2290",ttype:CONST},{input:"\\sqsubseteq",tag:"mo",output:"\u2291",ttype:CONST},{input:"\\sqsupseteq",tag:"mo",output:"\u2292",ttype:CONST},{input:"\\sim",tag:"mo",output:"\u223C",ttype:CONST},{input:"\\simeq",tag:"mo",output:"\u2243",ttype:CONST},{input:"\\approx",tag:"mo",output:"\u2248",ttype:CONST},{input:"\\cong",tag:"mo",output:"\u2245",ttype:CONST},{input:"\\Join",tag:"mo",output:"\u22C8",ttype:CONST},{input:"\\bowtie",tag:"mo",output:"\u22C8",ttype:CONST},{input:"\\in",tag:"mo",output:"\u2208",ttype:CONST},{input:"\\ni",tag:"mo",output:"\u220B",ttype:CONST},{input:"\\owns",tag:"mo",output:"\u220B",ttype:CONST},{input:"\\propto",tag:"mo",output:"\u221D",ttype:CONST},{input:"\\vdash",tag:"mo",output:"\u22A2",ttype:CONST},{input:"\\dashv",tag:"mo",output:"\u22A3",ttype:CONST},{input:"\\models",tag:"mo",output:"\u22A8",ttype:CONST},{input:"\\perp",tag:"mo",output:"\u22A5",ttype:CONST},{input:"\\smile",tag:"mo",output:"\u2323",ttype:CONST},{input:"\\frown",tag:"mo",output:"\u2322",ttype:CONST},{input:"\\asymp",tag:"mo",output:"\u224D",ttype:CONST},{input:"\\notin",tag:"mo",output:"\u2209",ttype:CONST},{input:"\\begin{eqnarray}",output:"X",ttype:MATRIX,invisible:true},{input:"\\begin{array}",output:"X",ttype:MATRIX,invisible:true},{input:"\\\\",output:"}&{",ttype:DEFINITION},{input:"\\end{eqnarray}",output:"}}",ttype:DEFINITION},{input:"\\end{array}",output:"}}",ttype:DEFINITION},{input:"\\big",tag:"mo",output:"X",atval:"1.2",ieval:"2.2",ttype:BIG},{input:"\\Big",tag:"mo",output:"X",atval:"1.6",ieval:"2.6",ttype:BIG},{input:"\\bigg",tag:"mo",output:"X",atval:"2.2",ieval:"3.2",ttype:BIG},{input:"\\Bigg",tag:"mo",output:"X",atval:"2.9",ieval:"3.9",ttype:BIG},{input:"\\left",tag:"mo",output:"X",ttype:LEFTBRACKET},{input:"\\right",tag:"mo",output:"X",ttype:RIGHTBRACKET},{input:"{",output:"{",ttype:LEFTBRACKET,invisible:true},{input:"}",output:"}",ttype:RIGHTBRACKET,invisible:true},{input:"(",tag:"mo",output:"(",atval:"1",ttype:STRETCHY},{input:"[",tag:"mo",output:"[",atval:"1",ttype:STRETCHY},{input:"\\lbrack",tag:"mo",output:"[",atval:"1",ttype:STRETCHY},{input:"\\{",tag:"mo",output:"{",atval:"1",ttype:STRETCHY},{input:"\\lbrace",tag:"mo",output:"{",atval:"1",ttype:STRETCHY},{input:"\\langle",tag:"mo",output:"\u2329",atval:"1",ttype:STRETCHY},{input:"\\lfloor",tag:"mo",output:"\u230A",atval:"1",ttype:STRETCHY},{input:"\\lceil",tag:"mo",output:"\u2308",atval:"1",ttype:STRETCHY},{input:")",tag:"mo",output:")",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"]",tag:"mo",output:"]",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"\\rbrack",tag:"mo",output:"]",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"\\}",tag:"mo",output:"}",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"\\rbrace",tag:"mo",output:"}",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"\\rangle",tag:"mo",output:"\u232A",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"\\rfloor",tag:"mo",output:"\u230B",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"\\rceil",tag:"mo",output:"\u2309",rtag:"mi",atval:"1",ttype:STRETCHY},{input:"|",tag:"mo",output:"\u2223",atval:"1",ttype:STRETCHY},{input:"\\|",tag:"mo",output:"\u2225",atval:"1",ttype:STRETCHY},{input:"\\vert",tag:"mo",output:"\u2223",atval:"1",ttype:STRETCHY},{input:"\\Vert",tag:"mo",output:"\u2225",atval:"1",ttype:STRETCHY},{input:"\\mid",tag:"mo",output:"\u2223",atval:"1",ttype:STRETCHY},{input:"\\parallel",tag:"mo",output:"\u2225",atval:"1",ttype:STRETCHY},{input:"/",tag:"mo",output:"/",atval:"1.01",ttype:STRETCHY},{input:"\\backslash",tag:"mo",output:"\u2216",atval:"1",ttype:STRETCHY},{input:"\\setminus",tag:"mo",output:"\\",ttype:CONST},{input:"\\!",tag:"mspace",atname:"width",atval:"-0.167em",ttype:SPACE},{input:"\\,",tag:"mspace",atname:"width",atval:"0.167em",ttype:SPACE},{input:"\\>",tag:"mspace",atname:"width",atval:"0.222em",ttype:SPACE},{input:"\\:",tag:"mspace",atname:"width",atval:"0.222em",ttype:SPACE},{input:"\\;",tag:"mspace",atname:"width",atval:"0.278em",ttype:SPACE},{input:"~",tag:"mspace",atname:"width",atval:"0.333em",ttype:SPACE},{input:"\\quad",tag:"mspace",atname:"width",atval:"1em",ttype:SPACE},{input:"\\qquad",tag:"mspace",atname:"width",atval:"2em",ttype:SPACE},{input:"\\prime",tag:"mo",output:"\u2032",ttype:CONST},{input:"'",tag:"mo",output:"\u02B9",ttype:CONST},{input:"''",tag:"mo",output:"\u02BA",ttype:CONST},{input:"'''",tag:"mo",output:"\u2034",ttype:CONST},{input:"''''",tag:"mo",output:"\u2057",ttype:CONST},{input:"\\ldots",tag:"mo",output:"\u2026",ttype:CONST},{input:"\\cdots",tag:"mo",output:"\u22EF",ttype:CONST},{input:"\\vdots",tag:"mo",output:"\u22EE",ttype:CONST},{input:"\\ddots",tag:"mo",output:"\u22F1",ttype:CONST},{input:"\\forall",tag:"mo",output:"\u2200",ttype:CONST},{input:"\\exists",tag:"mo",output:"\u2203",ttype:CONST},{input:"\\Re",tag:"mo",output:"\u211C",ttype:CONST},{input:"\\Im",tag:"mo",output:"\u2111",ttype:CONST},{input:"\\aleph",tag:"mo",output:"\u2135",ttype:CONST},{input:"\\hbar",tag:"mo",output:"\u210F",ttype:CONST},{input:"\\ell",tag:"mo",output:"\u2113",ttype:CONST},{input:"\\wp",tag:"mo",output:"\u2118",ttype:CONST},{input:"\\emptyset",tag:"mo",output:"\u2205",ttype:CONST},{input:"\\infty",tag:"mo",output:"\u221E",ttype:CONST},{input:"\\surd",tag:"mo",output:"\\sqrt{}",ttype:DEFINITION},{input:"\\partial",tag:"mo",output:"\u2202",ttype:CONST},{input:"\\nabla",tag:"mo",output:"\u2207",ttype:CONST},{input:"\\triangle",tag:"mo",output:"\u25B3",ttype:CONST},{input:"\\therefore",tag:"mo",output:"\u2234",ttype:CONST},{input:"\\angle",tag:"mo",output:"\u2220",ttype:CONST},{input:"\\diamond",tag:"mo",output:"\u22C4",ttype:CONST},{input:"\\Diamond",tag:"mo",output:"\u25C7",ttype:CONST},{input:"\\neg",tag:"mo",output:"\u00AC",ttype:CONST},{input:"\\lnot",tag:"mo",output:"\u00AC",ttype:CONST},{input:"\\bot",tag:"mo",output:"\u22A5",ttype:CONST},{input:"\\top",tag:"mo",output:"\u22A4",ttype:CONST},{input:"\\square",tag:"mo",output:"\u25AB",ttype:CONST},{input:"\\Box",tag:"mo",output:"\u25A1",ttype:CONST},{input:"\\wr",tag:"mo",output:"\u2240",ttype:CONST},{input:"\\arccos",tag:"mi",output:"arccos",ttype:UNARY,func:true},{input:"\\arcsin",tag:"mi",output:"arcsin",ttype:UNARY,func:true},{input:"\\arctan",tag:"mi",output:"arctan",ttype:UNARY,func:true},{input:"\\arg",tag:"mi",output:"arg",ttype:UNARY,func:true},{input:"\\cos",tag:"mi",output:"cos",ttype:UNARY,func:true},{input:"\\cosh",tag:"mi",output:"cosh",ttype:UNARY,func:true},{input:"\\cot",tag:"mi",output:"cot",ttype:UNARY,func:true},{input:"\\coth",tag:"mi",output:"coth",ttype:UNARY,func:true},{input:"\\csc",tag:"mi",output:"csc",ttype:UNARY,func:true},{input:"\\deg",tag:"mi",output:"deg",ttype:UNARY,func:true},{input:"\\det",tag:"mi",output:"det",ttype:UNARY,func:true},{input:"\\dim",tag:"mi",output:"dim",ttype:UNARY,func:true},{input:"\\exp",tag:"mi",output:"exp",ttype:UNARY,func:true},{input:"\\gcd",tag:"mi",output:"gcd",ttype:UNARY,func:true},{input:"\\hom",tag:"mi",output:"hom",ttype:UNARY,func:true},{input:"\\inf",tag:"mo",output:"inf",ttype:UNDEROVER},{input:"\\ker",tag:"mi",output:"ker",ttype:UNARY,func:true},{input:"\\lg",tag:"mi",output:"lg",ttype:UNARY,func:true},{input:"\\lim",tag:"mo",output:"lim",ttype:UNDEROVER},{input:"\\liminf",tag:"mo",output:"liminf",ttype:UNDEROVER},{input:"\\limsup",tag:"mo",output:"limsup",ttype:UNDEROVER},{input:"\\ln",tag:"mi",output:"ln",ttype:UNARY,func:true},{input:"\\log",tag:"mi",output:"log",ttype:UNARY,func:true},{input:"\\max",tag:"mo",output:"max",ttype:UNDEROVER},{input:"\\min",tag:"mo",output:"min",ttype:UNDEROVER},{input:"\\Pr",tag:"mi",output:"Pr",ttype:UNARY,func:true},{input:"\\sec",tag:"mi",output:"sec",ttype:UNARY,func:true},{input:"\\sin",tag:"mi",output:"sin",ttype:UNARY,func:true},{input:"\\sinh",tag:"mi",output:"sinh",ttype:UNARY,func:true},{input:"\\sup",tag:"mo",output:"sup",ttype:UNDEROVER},{input:"\\tan",tag:"mi",output:"tan",ttype:UNARY,func:true},{input:"\\tanh",tag:"mi",output:"tanh",ttype:UNARY,func:true},{input:"\\gets",tag:"mo",output:"\u2190",ttype:CONST},{input:"\\leftarrow",tag:"mo",output:"\u2190",ttype:CONST},{input:"\\to",tag:"mo",output:"\u2192",ttype:CONST},{input:"\\rightarrow",tag:"mo",output:"\u2192",ttype:CONST},{input:"\\leftrightarrow",tag:"mo",output:"\u2194",ttype:CONST},{input:"\\uparrow",tag:"mo",output:"\u2191",ttype:CONST},{input:"\\downarrow",tag:"mo",output:"\u2193",ttype:CONST},{input:"\\updownarrow",tag:"mo",output:"\u2195",ttype:CONST},{input:"\\Leftarrow",tag:"mo",output:"\u21D0",ttype:CONST},{input:"\\Rightarrow",tag:"mo",output:"\u21D2",ttype:CONST},{input:"\\Leftrightarrow",tag:"mo",output:"\u21D4",ttype:CONST},{input:"\\iff",tag:"mo",output:"~\\Longleftrightarrow~",ttype:DEFINITION},{input:"\\Uparrow",tag:"mo",output:"\u21D1",ttype:CONST},{input:"\\Downarrow",tag:"mo",output:"\u21D3",ttype:CONST},{input:"\\Updownarrow",tag:"mo",output:"\u21D5",ttype:CONST},{input:"\\mapsto",tag:"mo",output:"\u21A6",ttype:CONST},{input:"\\longleftarrow",tag:"mo",output:"\u2190",ttype:LONG},{input:"\\longrightarrow",tag:"mo",output:"\u2192",ttype:LONG},{input:"\\longleftrightarrow",tag:"mo",output:"\u2194",ttype:LONG},{input:"\\Longleftarrow",tag:"mo",output:"\u21D0",ttype:LONG},{input:"\\Longrightarrow",tag:"mo",output:"\u21D2",ttype:LONG},{input:"\\Longleftrightarrow",tag:"mo",output:"\u21D4",ttype:LONG},{input:"\\longmapsto",tag:"mo",output:"\u21A6",ttype:CONST},AMsqrt,AMroot,AMfrac,AMover,AMsub,AMsup,AMtext,AMmbox,AMatop,AMchoose,{input:"\\acute",tag:"mover",output:"\u00B4",ttype:UNARY,acc:true},{input:"\\grave",tag:"mover",output:"\u0060",ttype:UNARY,acc:true},{input:"\\breve",tag:"mover",output:"\u02D8",ttype:UNARY,acc:true},{input:"\\check",tag:"mover",output:"\u02C7",ttype:UNARY,acc:true},{input:"\\dot",tag:"mover",output:".",ttype:UNARY,acc:true},{input:"\\ddot",tag:"mover",output:"..",ttype:UNARY,acc:true},{input:"\\mathring",tag:"mover",output:"\u00B0",ttype:UNARY,acc:true},{input:"\\vec",tag:"mover",output:"\u20D7",ttype:UNARY,acc:true},{input:"\\overrightarrow",tag:"mover",output:"\u20D7",ttype:UNARY,acc:true},{input:"\\overleftarrow",tag:"mover",output:"\u20D6",ttype:UNARY,acc:true},{input:"\\hat",tag:"mover",output:"\u005E",ttype:UNARY,acc:true},{input:"\\widehat",tag:"mover",output:"\u0302",ttype:UNARY,acc:true},{input:"\\tilde",tag:"mover",output:"~",ttype:UNARY,acc:true},{input:"\\widetilde",tag:"mover",output:"\u02DC",ttype:UNARY,acc:true},{input:"\\bar",tag:"mover",output:"\u203E",ttype:UNARY,acc:true},{input:"\\overbrace",tag:"mover",output:"\uFE37",ttype:UNARY,acc:true},{input:"\\overbracket",tag:"mover",output:"\u23B4",ttype:UNARY,acc:true},{input:"\\overline",tag:"mover",output:"\u00AF",ttype:UNARY,acc:true},{input:"\\underbrace",tag:"munder",output:"\uFE38",ttype:UNARY,acc:true},{input:"\\underbracket",tag:"munder",output:"\u23B5",ttype:UNARY,acc:true},{input:"\\underline",tag:"munder",output:"\u00AF",ttype:UNARY,acc:true},{input:"\\displaystyle",tag:"mstyle",atname:"displaystyle",atval:"true",ttype:UNARY},{input:"\\textstyle",tag:"mstyle",atname:"displaystyle",atval:"false",ttype:UNARY},{input:"\\scriptstyle",tag:"mstyle",atname:"scriptlevel",atval:"1",ttype:UNARY},{input:"\\scriptscriptstyle",tag:"mstyle",atname:"scriptlevel",atval:"2",ttype:UNARY},{input:"\\textrm",tag:"mstyle",output:"\\mathrm",ttype:DEFINITION},{input:"\\mathbf",tag:"mstyle",atname:"mathvariant",atval:"bold",ttype:UNARY},{input:"\\textbf",tag:"mstyle",atname:"mathvariant",atval:"bold",ttype:UNARY},{input:"\\mathit",tag:"mstyle",atname:"mathvariant",atval:"italic",ttype:UNARY},{input:"\\textit",tag:"mstyle",atname:"mathvariant",atval:"italic",ttype:UNARY},{input:"\\mathtt",tag:"mstyle",atname:"mathvariant",atval:"monospace",ttype:UNARY},{input:"\\texttt",tag:"mstyle",atname:"mathvariant",atval:"monospace",ttype:UNARY},{input:"\\mathsf",tag:"mstyle",atname:"mathvariant",atval:"sans-serif",ttype:UNARY},{input:"\\mathbb",tag:"mstyle",atname:"mathvariant",atval:"double-struck",ttype:UNARY,codes:AMbbb},{input:"\\mathcal",tag:"mstyle",atname:"mathvariant",atval:"script",ttype:UNARY,codes:AMcal},{input:"\\mathfrak",tag:"mstyle",atname:"mathvariant",atval:"fraktur",ttype:UNARY,codes:AMfrk},{input:"\\textcolor",tag:"mstyle",atname:"mathvariant",atval:"mathcolor",ttype:BINARY},{input:"\\colorbox",tag:"mstyle",atname:"mathvariant",atval:"background",ttype:BINARY}];function compareNames(s1,s2){if(s1.input>s2.input)return 1
+  else return-1;}
+  var AMnames=[];function AMinitSymbols(){AMsymbols.sort(compareNames);for(i=0;i<AMsymbols.length;i++)AMnames[i]=AMsymbols[i].input;}
+  var AMmathml="http://www.w3.org/1998/Math/MathML";function AMcreateElementMathML(t){if(isIE)return document.createElement("m:"+t);else return document.createElementNS(AMmathml,t);}
+  function AMcreateMmlNode(t,frag){if(isIE)var node=document.createElement("m:"+t);else var node=document.createElementNS(AMmathml,t);node.appendChild(frag);return node;}
+  function newcommand(oldstr,newstr){AMsymbols=AMsymbols.concat([{input:oldstr,tag:"mo",output:newstr,ttype:DEFINITION}]);}
+  function AMremoveCharsAndBlanks(str,n){var st;st=str.slice(n);for(var i=0;i<st.length&&st.charCodeAt(i)<=32;i=i+1);return st.slice(i);}
+  function AMposition(arr,str,n){if(n==0){var h,m;n=-1;h=arr.length;while(n+1<h){m=(n+h)>>1;if(arr[m]<str)n=m;else h=m;}
+  return h;}else
+  for(var i=n;i<arr.length&&arr[i]<str;i++);return i;}
+  function AMgetSymbol(str){var k=0;var j=0;var mk;var st;var tagst;var match="";var more=true;for(var i=1;i<=str.length&&more;i++){st=str.slice(0,i);j=k;k=AMposition(AMnames,st,j);if(k<AMnames.length&&str.slice(0,AMnames[k].length)==AMnames[k]){match=AMnames[k];mk=k;i=match.length;}
+  more=k<AMnames.length&&str.slice(0,AMnames[k].length)>=AMnames[k];}
+  AMpreviousSymbol=AMcurrentSymbol;if(match!=""){AMcurrentSymbol=AMsymbols[mk].ttype;return AMsymbols[mk];}
+  AMcurrentSymbol=CONST;k=1;st=str.slice(0,1);if("0"<=st&&st<="9")tagst="mn";else tagst=(("A">st||st>"Z")&&("a">st||st>"z")?"mo":"mi");return{input:st,tag:tagst,output:st,ttype:CONST};}
+  var AMpreviousSymbol,AMcurrentSymbol;function AMparseSexpr(str){var symbol,node,result,result2,i,st,newFrag=document.createDocumentFragment();str=AMremoveCharsAndBlanks(str,0);symbol=AMgetSymbol(str);if(symbol==null||symbol.ttype==RIGHTBRACKET)
+  return[null,str,null];if(symbol.ttype==DEFINITION){str=symbol.output+AMremoveCharsAndBlanks(str,symbol.input.length);symbol=AMgetSymbol(str);if(symbol==null||symbol.ttype==RIGHTBRACKET)
+  return[null,str,null];}
+  str=AMremoveCharsAndBlanks(str,symbol.input.length);switch(symbol.ttype){case SPACE:node=AMcreateElementMathML(symbol.tag);node.setAttribute(symbol.atname,symbol.atval);return[node,str,symbol.tag];case UNDEROVER:if(isIE){if(symbol.input.substr(0,4)=="\\big"){str="\\"+symbol.input.substr(4)+str;symbol=AMgetSymbol(str);symbol.ttype=UNDEROVER;str=AMremoveCharsAndBlanks(str,symbol.input.length);}}
+  return[AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output)),str,symbol.tag];case CONST:var output=symbol.output;if(isIE){if(symbol.input=="'")
+  output="\u2032";else if(symbol.input=="''")
+  output="\u2033";else if(symbol.input=="'''")
+  output="\u2033\u2032";else if(symbol.input=="''''")
+  output="\u2033\u2033";else if(symbol.input=="\\square")
+  output="\u25A1";else if(symbol.input.substr(0,5)=="\\frac"){var denom=symbol.input.substr(6,1);if(denom=="5"||denom=="6"){str=symbol.input.replace(/\\frac/,"\\frac ")+str;return[node,str,symbol.tag];}}}
+  node=AMcreateMmlNode(symbol.tag,document.createTextNode(output));return[node,str,symbol.tag];case LONG:node=AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output));node.setAttribute("minsize","1.5");node.setAttribute("maxsize","1.5");node=AMcreateMmlNode("mover",node);node.appendChild(AMcreateElementMathML("mspace"));return[node,str,symbol.tag];case STRETCHY:if(isIE&&symbol.input=="\\backslash")
+  symbol.output="\\";node=AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output));if(symbol.input=="|"||symbol.input=="\\vert"||symbol.input=="\\|"||symbol.input=="\\Vert"){node.setAttribute("lspace","0em");node.setAttribute("rspace","0em");}
+  node.setAttribute("maxsize",symbol.atval);if(symbol.rtag!=null)
+  return[node,str,symbol.rtag];else
+  return[node,str,symbol.tag];case BIG:var atval=symbol.atval;if(isIE)
+  atval=symbol.ieval;symbol=AMgetSymbol(str);if(symbol==null)
+  return[null,str,null];str=AMremoveCharsAndBlanks(str,symbol.input.length);node=AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output));if(isIE){var space=AMcreateElementMathML("mspace");space.setAttribute("height",atval+"ex");node=AMcreateMmlNode("mrow",node);node.appendChild(space);}else{node.setAttribute("minsize",atval);node.setAttribute("maxsize",atval);}
+  return[node,str,symbol.tag];case LEFTBRACKET:if(symbol.input=="\\left"){symbol=AMgetSymbol(str);if(symbol!=null){if(symbol.input==".")
+  symbol.invisible=true;str=AMremoveCharsAndBlanks(str,symbol.input.length);}}
+  result=AMparseExpr(str,true,false);if(symbol==null||(typeof symbol.invisible=="boolean"&&symbol.invisible))
+  node=AMcreateMmlNode("mrow",result[0]);else{node=AMcreateMmlNode("mo",document.createTextNode(symbol.output));node=AMcreateMmlNode("mrow",node);node.appendChild(result[0]);}
+  return[node,result[1],result[2]];case MATRIX:if(symbol.input=="\\begin{array}"){var mask="";symbol=AMgetSymbol(str);str=AMremoveCharsAndBlanks(str,0);if(symbol==null)
+  mask="l";else{str=AMremoveCharsAndBlanks(str,symbol.input.length);if(symbol.input!="{")
+  mask="l";else do{symbol=AMgetSymbol(str);if(symbol!=null){str=AMremoveCharsAndBlanks(str,symbol.input.length);if(symbol.input!="}")
+  mask=mask+symbol.input;}}while(symbol!=null&&symbol.input!=""&&symbol.input!="}");}
+  result=AMparseExpr("{"+str,true,true);node=AMcreateMmlNode("mtable",result[0]);mask=mask.replace(/l/g,"left ");mask=mask.replace(/r/g,"right ");mask=mask.replace(/c/g,"center ");node.setAttribute("columnalign",mask);node.setAttribute("displaystyle","false");if(isIE)
+  return[node,result[1],null];var lspace=AMcreateElementMathML("mspace");lspace.setAttribute("width","0.167em");var rspace=AMcreateElementMathML("mspace");rspace.setAttribute("width","0.167em");var node1=AMcreateMmlNode("mrow",lspace);node1.appendChild(node);node1.appendChild(rspace);return[node1,result[1],null];}else{result=AMparseExpr("{"+str,true,true);node=AMcreateMmlNode("mtable",result[0]);if(isIE)
+  node.setAttribute("columnspacing","0.25em");else
+  node.setAttribute("columnspacing","0.167em");node.setAttribute("columnalign","right center left");node.setAttribute("displaystyle","true");node=AMcreateMmlNode("mrow",node);return[node,result[1],null];}
+  case TEXT:if(str.charAt(0)=="{")i=str.indexOf("}");else i=0;if(i==-1)
+  i=str.length;st=str.slice(1,i);if(st.charAt(0)==" "){node=AMcreateElementMathML("mspace");node.setAttribute("width","0.33em");newFrag.appendChild(node);}
+  newFrag.appendChild(AMcreateMmlNode(symbol.tag,document.createTextNode(st)));if(st.charAt(st.length-1)==" "){node=AMcreateElementMathML("mspace");node.setAttribute("width","0.33em");newFrag.appendChild(node);}
+  str=AMremoveCharsAndBlanks(str,i+1);return[AMcreateMmlNode("mrow",newFrag),str,null];case UNARY:result=AMparseSexpr(str);if(result[0]==null)return[AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output)),str];if(typeof symbol.func=="boolean"&&symbol.func){st=str.charAt(0);if(st=="^"||st=="_"||st==","){return[AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output)),str,symbol.tag];}else{node=AMcreateMmlNode("mrow",AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output)));if(isIE){var space=AMcreateElementMathML("mspace");space.setAttribute("width","0.167em");node.appendChild(space);}
+  node.appendChild(result[0]);return[node,result[1],symbol.tag];}}
+  if(symbol.input=="\\sqrt"){if(isIE){var space=AMcreateElementMathML("mspace");space.setAttribute("height","1.2ex");space.setAttribute("width","0em");node=AMcreateMmlNode(symbol.tag,result[0])
+  node.appendChild(space);return[node,result[1],symbol.tag];}else
+  return[AMcreateMmlNode(symbol.tag,result[0]),result[1],symbol.tag];}else if(typeof symbol.acc=="boolean"&&symbol.acc){node=AMcreateMmlNode(symbol.tag,result[0]);var output=symbol.output;if(isIE){if(symbol.input=="\\hat")
+  output="\u0302";else if(symbol.input=="\\widehat")
+  output="\u005E";else if(symbol.input=="\\bar")
+  output="\u00AF";else if(symbol.input=="\\grave")
+  output="\u0300";else if(symbol.input=="\\tilde")
+  output="\u0303";}
+  var node1=AMcreateMmlNode("mo",document.createTextNode(output));if(symbol.input=="\\vec"||symbol.input=="\\check")
+  node1.setAttribute("maxsize","1.2");if(isIE&&symbol.input=="\\bar")
+  node1.setAttribute("maxsize","0.5");if(symbol.input=="\\underbrace"||symbol.input=="\\underline")
+  node1.setAttribute("accentunder","true");else
+  node1.setAttribute("accent","true");node.appendChild(node1);if(symbol.input=="\\overbrace"||symbol.input=="\\underbrace")
+  node.ttype=UNDEROVER;return[node,result[1],symbol.tag];}else{if(!isIE&&typeof symbol.codes!="undefined"){for(i=0;i<result[0].childNodes.length;i++)
+  if(result[0].childNodes[i].nodeName=="mi"||result[0].nodeName=="mi"){st=(result[0].nodeName=="mi"?result[0].firstChild.nodeValue:result[0].childNodes[i].firstChild.nodeValue);var newst=[];for(var j=0;j<st.length;j++)
+  if(st.charCodeAt(j)>64&&st.charCodeAt(j)<91)newst=newst+
+  String.fromCharCode(symbol.codes[st.charCodeAt(j)-65]);else newst=newst+st.charAt(j);if(result[0].nodeName=="mi")
+  result[0]=AMcreateElementMathML("mo").appendChild(document.createTextNode(newst));else result[0].replaceChild(AMcreateElementMathML("mo").appendChild(document.createTextNode(newst)),result[0].childNodes[i]);}}
+  node=AMcreateMmlNode(symbol.tag,result[0]);node.setAttribute(symbol.atname,symbol.atval);if(symbol.input=="\\scriptstyle"||symbol.input=="\\scriptscriptstyle")
+  node.setAttribute("displaystyle","false");return[node,result[1],symbol.tag];}
+  case BINARY:result=AMparseSexpr(str);if(result[0]==null)return[AMcreateMmlNode("mo",document.createTextNode(symbol.input)),str,null];result2=AMparseSexpr(result[1]);if(result2[0]==null)return[AMcreateMmlNode("mo",document.createTextNode(symbol.input)),str,null];if(symbol.input=="\\textcolor"||symbol.input=="\\colorbox"){var tclr=str.match(/\{\s*([#\w]+)\s*\}/);str=str.replace(/\{\s*[#\w]+\s*\}/,"");if(tclr!=null){if(IsColorName.test(tclr[1].toLowerCase())){tclr=LaTeXColor[tclr[1].toLowerCase()];}else{tclr=tclr[1];}
+  node=AMcreateElementMathML("mstyle");node.setAttribute(symbol.atval,tclr);node.appendChild(result2[0]);return[node,result2[1],symbol.tag];}}
+  if(symbol.input=="\\root"||symbol.input=="\\stackrel")newFrag.appendChild(result2[0]);newFrag.appendChild(result[0]);if(symbol.input=="\\frac")newFrag.appendChild(result2[0]);return[AMcreateMmlNode(symbol.tag,newFrag),result2[1],symbol.tag];case INFIX:str=AMremoveCharsAndBlanks(str,symbol.input.length);return[AMcreateMmlNode("mo",document.createTextNode(symbol.output)),str,symbol.tag];default:return[AMcreateMmlNode(symbol.tag,document.createTextNode(symbol.output)),str,symbol.tag];}}
+  function AMparseIexpr(str){var symbol,sym1,sym2,node,result,tag,underover;str=AMremoveCharsAndBlanks(str,0);sym1=AMgetSymbol(str);result=AMparseSexpr(str);node=result[0];str=result[1];tag=result[2];symbol=AMgetSymbol(str);if(symbol.ttype==INFIX){str=AMremoveCharsAndBlanks(str,symbol.input.length);result=AMparseSexpr(str);if(result[0]==null)
+  result[0]=AMcreateMmlNode("mo",document.createTextNode("\u25A1"));str=result[1];tag=result[2];if(symbol.input=="_"||symbol.input=="^"){sym2=AMgetSymbol(str);tag=null;underover=((sym1.ttype==UNDEROVER)||(node.ttype==UNDEROVER));if(symbol.input=="_"&&sym2.input=="^"){str=AMremoveCharsAndBlanks(str,sym2.input.length);var res2=AMparseSexpr(str);str=res2[1];tag=res2[2];node=AMcreateMmlNode((underover?"munderover":"msubsup"),node);node.appendChild(result[0]);node.appendChild(res2[0]);}else if(symbol.input=="_"){node=AMcreateMmlNode((underover?"munder":"msub"),node);node.appendChild(result[0]);}else{node=AMcreateMmlNode((underover?"mover":"msup"),node);node.appendChild(result[0]);}
+  node=AMcreateMmlNode("mrow",node);}else{node=AMcreateMmlNode(symbol.tag,node);if(symbol.input=="\\atop"||symbol.input=="\\choose")
+  node.setAttribute("linethickness","0ex");node.appendChild(result[0]);if(symbol.input=="\\choose")
+  node=AMcreateMmlNode("mfenced",node);}}
+  return[node,str,tag];}
+  function AMparseExpr(str,rightbracket,matrix){var symbol,node,result,i,tag,newFrag=document.createDocumentFragment();do{str=AMremoveCharsAndBlanks(str,0);result=AMparseIexpr(str);node=result[0];str=result[1];tag=result[2];symbol=AMgetSymbol(str);if(node!=undefined){if((tag=="mn"||tag=="mi")&&symbol!=null&&typeof symbol.func=="boolean"&&symbol.func){var space=AMcreateElementMathML("mspace");space.setAttribute("width","0.167em");node=AMcreateMmlNode("mrow",node);node.appendChild(space);}
+  newFrag.appendChild(node);}}while((symbol.ttype!=RIGHTBRACKET)&&symbol!=null&&symbol.output!="");tag=null;if(symbol.ttype==RIGHTBRACKET){if(symbol.input=="\\right"){str=AMremoveCharsAndBlanks(str,symbol.input.length);symbol=AMgetSymbol(str);if(symbol!=null&&symbol.input==".")
+  symbol.invisible=true;if(symbol!=null)
+  tag=symbol.rtag;}
+  if(symbol!=null)
+  str=AMremoveCharsAndBlanks(str,symbol.input.length);var len=newFrag.childNodes.length;if(matrix&&len>0&&newFrag.childNodes[len-1].nodeName=="mrow"&&len>1&&newFrag.childNodes[len-2].nodeName=="mo"&&newFrag.childNodes[len-2].firstChild.nodeValue=="&"){var pos=[];var m=newFrag.childNodes.length;for(i=0;matrix&&i<m;i=i+2){pos[i]=[];node=newFrag.childNodes[i];for(var j=0;j<node.childNodes.length;j++)
+  if(node.childNodes[j].firstChild.nodeValue=="&")
+  pos[i][pos[i].length]=j;}
+  var row,frag,n,k,table=document.createDocumentFragment();for(i=0;i<m;i=i+2){row=document.createDocumentFragment();frag=document.createDocumentFragment();node=newFrag.firstChild;n=node.childNodes.length;k=0;for(j=0;j<n;j++){if(typeof pos[i][k]!="undefined"&&j==pos[i][k]){node.removeChild(node.firstChild);row.appendChild(AMcreateMmlNode("mtd",frag));k++;}else frag.appendChild(node.firstChild);}
+  row.appendChild(AMcreateMmlNode("mtd",frag));if(newFrag.childNodes.length>2){newFrag.removeChild(newFrag.firstChild);newFrag.removeChild(newFrag.firstChild);}
+  table.appendChild(AMcreateMmlNode("mtr",row));}
+  return[table,str];}
+  if(typeof symbol.invisible!="boolean"||!symbol.invisible){node=AMcreateMmlNode("mo",document.createTextNode(symbol.output));newFrag.appendChild(node);}}
+  return[newFrag,str,tag];}
+  function AMparseMath(str){var result,node=AMcreateElementMathML("mstyle");var cclr=str.match(/\\color\s*\{\s*([#\w]+)\s*\}/);str=str.replace(/\\color\s*\{\s*[#\w]+\s*\}/g,"");if(cclr!=null){if(IsColorName.test(cclr[1].toLowerCase())){cclr=LaTeXColor[cclr[1].toLowerCase()];}else{cclr=cclr[1];}
+  node.setAttribute("mathcolor",cclr);}else{if(mathcolor!="")node.setAttribute("mathcolor",mathcolor);};if(mathfontfamily!="")node.setAttribute("fontfamily",mathfontfamily);node.appendChild(AMparseExpr(str.replace(/^\s+/g,""),false,false)[0]);node=AMcreateMmlNode("math",node);if(showasciiformulaonhover)
+  node.setAttribute("title",str.replace(/\s+/g," "));if(false){var fnode=AMcreateElementXHTML("font");fnode.setAttribute("face",mathfontfamily);fnode.appendChild(node);return fnode;}
+  return node;}
+  function AMstrarr2docFrag(arr,linebreaks){var newFrag=document.createDocumentFragment();var expr=false;for(var i=0;i<arr.length;i++){if(expr)newFrag.appendChild(AMparseMath(arr[i]));else{var arri=(linebreaks?arr[i].split("\n\n"):[arr[i]]);newFrag.appendChild(AMcreateElementXHTML("span").appendChild(document.createTextNode(arri[0])));for(var j=1;j<arri.length;j++){newFrag.appendChild(AMcreateElementXHTML("p"));newFrag.appendChild(AMcreateElementXHTML("span").appendChild(document.createTextNode(arri[j])));}}
+  expr=!expr;}
+  return newFrag;}
+  function AMprocessNodeR(n,linebreaks){var mtch,str,arr,frg,i;if(n.childNodes.length==0){if((n.nodeType!=8||linebreaks)&&n.parentNode.nodeName!="form"&&n.parentNode.nodeName!="FORM"&&n.parentNode.nodeName!="textarea"&&n.parentNode.nodeName!="TEXTAREA"&&n.parentNode.nodeName!="pre"&&n.parentNode.nodeName!="PRE"){str=n.nodeValue;if(!(str==null)){str=str.replace(/\r\n\r\n/g,"\n\n");str=str.replace(/\x20+/g," ");str=str.replace(/\s*\r\n/g," ");mtch=(str.indexOf("\$")==-1?false:true);str=str.replace(/([^\\])\$/g,"$1 \$");str=str.replace(/^\$/," \$");arr=str.split(" \$");for(i=0;i<arr.length;i++)
+  arr[i]=arr[i].replace(/\\\$/g,"\$");if(arr.length>1||mtch){if(checkForMathML){checkForMathML=false;var nd=AMisMathMLavailable();AMnoMathML=nd!=null;if(AMnoMathML&&notifyIfNoMathML)
+  if(alertIfNoMathML)
+  alert("To view the ASCIIMathML notation use Internet Explorer 6 +\nMathPlayer (free from www.dessci.com)\nor Firefox/Mozilla/Netscape");else AMbody.insertBefore(nd,AMbody.childNodes[0]);}
+  if(!AMnoMathML){frg=AMstrarr2docFrag(arr,n.nodeType==8);var len=frg.childNodes.length;n.parentNode.replaceChild(frg,n);return len-1;}else return 0;}}}else return 0;}else if(n.nodeName!="math"){for(i=0;i<n.childNodes.length;i++)
+  i+=AMprocessNodeR(n.childNodes[i],linebreaks);}
+  return 0;}
+  function AMprocessNode(n,linebreaks,spanclassAM){var frag,st;if(spanclassAM!=null){frag=document.getElementsByTagName("span")
+  for(var i=0;i<frag.length;i++)
+  if(frag[i].className=="AM")
+  AMprocessNodeR(frag[i],linebreaks);}else{try{st=n.innerHTML;}catch(err){}
+  if(st==null||st.indexOf("\$")!=-1)
+  AMprocessNodeR(n,linebreaks);}
+  if(isIE){frag=document.getElementsByTagName('math');for(var i=0;i<frag.length;i++)frag[i].update()}}
+  var inAppendix=false;var sectionCntr=0;var IEcommentWarning=true;var biblist=[];var bibcntr=0;var LaTeXCounter=[];LaTeXCounter["definition"]=0;LaTeXCounter["proposition"]=0;LaTeXCounter["lemma"]=0;LaTeXCounter["theorem"]=0;LaTeXCounter["corollary"]=0;LaTeXCounter["example"]=0;LaTeXCounter["exercise"]=0;LaTeXCounter["subsection"]=0;LaTeXCounter["subsubsection"]=0;LaTeXCounter["figure"]=0;LaTeXCounter["equation"]=0;LaTeXCounter["table"]=0;var LaTeXColor=[];LaTeXColor["greenyellow"]="#D9FF4F";LaTeXColor["yellow"]="#FFFF00";LaTeXColor["goldenrod"]="#FFE529";LaTeXColor["dandelion"]="#FFB529";LaTeXColor["apricot"]="#FFAD7A";LaTeXColor["peach"]="#FF804D";LaTeXColor["melon"]="#FF8A80";LaTeXColor["yelloworange"]="#FF9400";LaTeXColor["orange"]="#FF6321";LaTeXColor["burntorange"]="#FF7D00";LaTeXColor["bittersweet"]="#C20300";LaTeXColor["redorange"]="#FF3B21";LaTeXColor["mahogany"]="#A60000";LaTeXColor["maroon"]="#AD0000";LaTeXColor["brickred"]="#B80000";LaTeXColor["red"]="#FF0000";LaTeXColor["orangered"]="#FF0080";LaTeXColor["rubinered"]="#FF00DE";LaTeXColor["wildstrawberry"]="#FF0A9C";LaTeXColor["salmon"]="#FF789E";LaTeXColor["carnationpink"]="#FF5EFF";LaTeXColor["magenta"]="#FF00FF";LaTeXColor["violetred"]="#FF30FF";LaTeXColor["rhodamine"]="#FF2EFF";LaTeXColor["mulberry"]="#A314FA";LaTeXColor["redviolet"]="#9600A8";LaTeXColor["fuchsia"]="#7303EB";LaTeXColor["lavender"]="#FF85FF";LaTeXColor["thistle"]="#E069FF";LaTeXColor["orchid"]="#AD5CFF";LaTeXColor["darkorchid"]="#9933CC";LaTeXColor["purple"]="#8C24FF";LaTeXColor["plum"]="#8000FF";LaTeXColor["violet"]="#361FFF";LaTeXColor["royalpurple"]="#401AFF";LaTeXColor["blueviolet"]="#1A0DF5";LaTeXColor["periwinkle"]="#6E73FF";LaTeXColor["cadetblue"]="#616EC4";LaTeXColor["cornflowerblue"]="#59DEFF";LaTeXColor["midnightblue"]="#007091";LaTeXColor["navyblue"]="#0F75FF";LaTeXColor["royalblue"]="#0080FF";LaTeXColor["blue"]="#0000FF";LaTeXColor["cerulean"]="#0FE3FF";LaTeXColor["cyan"]="#00FFFF";LaTeXColor["processblue"]="#0AFFFF";LaTeXColor["skyblue"]="#61FFE0";LaTeXColor["turquoise"]="#26FFCC";LaTeXColor["tealblue"]="#1FFAA3";LaTeXColor["aquamarine"]="#2EFFB2";LaTeXColor["bluegreen"]="#26FFAB";LaTeXColor["emerald"]="#00FF80";LaTeXColor["junglegreen"]="#03FF7A";LaTeXColor["seagreen"]="#4FFF80";LaTeXColor["green"]="#00FF00";LaTeXColor["forestgreen"]="#00E000";LaTeXColor["pinegreen"]="#00BF29";LaTeXColor["limegreen"]="#80FF00";LaTeXColor["yellowgreen"]="#8FFF42";LaTeXColor["springgreen"]="#BDFF3D";LaTeXColor["olivegreen"]="#009900";LaTeXColor["rawsienna"]="#8C0000";LaTeXColor["sepia"]="#4D0000";LaTeXColor["brown"]="#660000";LaTeXColor["tan"]="#DB9470";LaTeXColor["gray"]="#808080";LaTeXColor["grey"]="#808080";LaTeXColor["black"]="#000000";LaTeXColor["white"]="#FFFFFF";var IsColorName=/^(?:greenyellow|yellow|goldenrod|dandelion|apricot|peach|melon|yelloworange|orange|burntorange|bittersweet|redorange|mahogany|maroon|brickred|red|orangered|rubinered|wildstrawberry|salmon|carnationpink|magenta|violetred|rhodamine|mulberry|redviolet|fuchsia|lavender|thistle|orchid|darkorchid|purple|plum|violet|royalpurple|blueviolet|periwinkle|cadetblue|cornflowerblue|midnightblue|navyblue|royalblue|blue|cerulean|cyan|processblue|skyblue|turquoise|tealblue|aquamarine|bluegreen|emerald|junglegreen|seagreen|green|forestgreen|pinegreen|limegreen|yellowgreen|springgreen|olivegreen|rawsienna|sepia|brown|tan|gray|grey|black|white)$/;var IsCounter=/^(?:definition|proposition|lemma|theorem|corollary|example|exercise|subsection|subsubsection|figure|equation|table)$/;var IsLaTeXElement=/^(?:displayequation|title|author|address|date|abstract|keyword|section|subsection|subsubsection|ref|cite|thebibliography|definition|proposition|lemma|theorem|corollary|example|exercise|itemize|enumerate|enddefinition|endproposition|endlemma|endtheorem|endcorollary|endexample|endexercise|enditemize|endenumerate|LaTeXMathMLlabel|LaTeXMathML|smallskip|medskip|bigskip|quote|quotation|endquote|endquotation|center|endcenter|description|enddescription|inlinemath)$/;var IsTextOnlyArea=/^(?:form|textarea|pre)$/i;var tableid=0;function makeNumberString(cntr){if(sectionCntr>0){if(inAppendix){return"A"+sectionCntr+"."+cntr;}else{return sectionCntr+"."+cntr;}}else{return""+cntr;}};function LaTeXpreProcess(thebody){var TheBody=thebody;if(TheBody.hasChildNodes()){if(!(IsLaTeXElement.test(TheBody.className)))
+  {for(var i=0;i<TheBody.childNodes.length;i++){LaTeXpreProcess(TheBody.childNodes[i])}}}
+  else{if(TheBody.nodeType==3&&!(IsTextOnlyArea.test(TheBody.parentNode.nodeName)))
+  {var str=TheBody.nodeValue;if(!(str==null)){str=str.replace(/\\%/g,"<per>");str=str.replace(/%[^\n]*(?=\n)/g,"");str=str.replace(/%[^\r]*(?=\r)/g,"");str=str.replace(/%[^\n]*$/,"")
+  if(isIE&&str.match(/%/g)!=null&&IEcommentWarning){alert("Comments may not have parsed properly.  Try putting in <pre class='LaTeX><div>..</div></pre> structure.");IEcommentWarning=false;}
+  str=str.replace(/<per>/g,"%");if(str.match(/XXX[\s\S]*/)!=null){var tmp=str.match(/XXX[\s\S]*/)[0];var tmpstr=tmp.charCodeAt(7)+"::"+tmp.charCodeAt(8)+"::"+tmp.charCodeAt(9)+"::"+tmp.charCodeAt(10)+"::"+tmp.charCodeAt(11)+"::"+tmp.charCodeAt(12)+"::"+tmp.charCodeAt(13);alert(tmpstr);}
+  str=str.replace(/([^\\])\\(\s)/g,"$1\u00A0$2");str=str.replace(/\\quad/g,"\u2001");str=str.replace(/\\qquad/g,"\u2001\u2001");str=str.replace(/\\enspace/g,"\u2002");str=str.replace(/\\;/g,"\u2004");str=str.replace(/\\:/g,"\u2005");str=str.replace(/\\,/g,"\u2006");str=str.replace(/\\thinspace/g,"\u200A");str=str.replace(/([^\\])~/g,"$1\u00A0");str=str.replace(/\\~/g,"~");str=str.replace(/\\\[/g," <DEQ> $\\displaystyle{");str=str.replace(/\\\]/g,"}$ <DEQ> ");str=str.replace(/\$\$/g,"${$<DEQ>$}$");str=str.replace(/\\begin\s*\{\s*array\s*\}/g,"\\begin{array}");str=str.replace(/\\end\s*\{\s*array\s*\}/g,"\\end{array}");str=str.replace(/\\begin\s*\{\s*eqnarray\s*\}/g,"  <DEQ>eqno$\\begin{eqnarray}");str=str.replace(/\\end\s*\{\s*eqnarray\s*\}/g,"\\end{eqnarray}$<DEQ>  ");str=str.replace(/\\begin\s*\{\s*eqnarray\*\s*\}/g,"  <DEQ>$\\begin{eqnarray}");str=str.replace(/\\end\s*\{\s*eqnarray\*\s*\}/g,"\\end{eqnarray}$<DEQ>  ");str=str.replace(/\\begin\s*\{\s*displaymath\s*\}/g," <DEQ> $\\displaystyle{");str=str.replace(/\\end\s*\{\s*displaymath\s*\}/g,"}$ <DEQ> ");str=str.replace(/\\begin\s*\{\s*equation\s*\*\s*\}/g," <DEQ> $\\displaystyle{");str=str.replace(/\\end\s*\{\s*equation\s*\*\s*\}/g,"}$ <DEQ> ");str=str.replace(/\\begin\s*\{\s*equation\s*\}/g," <DEQ>eqno$\\displaystyle{");str=str.replace(/\\end\s*\{\s*equation\s*\}/g,"}$ <DEQ> ");str=str.split("<DEQ>");var newFrag=document.createDocumentFragment();for(var i=0;i<str.length;i++){if(i%2){var DEQtable=document.createElement("table");DEQtable.className='displayequation';var DEQtbody=document.createElement("tbody");var DEQtr=document.createElement("tr");var DEQtdeq=document.createElement("td");DEQtdeq.className='eq';str[i]=str[i].replace(/\$\}\$/g,"$\\displaystyle{");str[i]=str[i].replace(/\$\{\$/g,"}");var lbl=str[i].match(/\\label\s*\{\s*(\w+)\s*\}/);var ISeqno=str[i].match(/^eqno/);str[i]=str[i].replace(/^eqno/," ");str[i]=str[i].replace(/\\label\s*\{\s*\w+\s*\}/," ");DEQtdeq.appendChild(document.createTextNode(str[i]));DEQtr.appendChild(DEQtdeq);str[i]=str[i].replace(/\\nonumber/g,"");if(ISeqno!=null||lbl!=null){var DEQtdno=document.createElement("td");DEQtdno.className='eqno';LaTeXCounter["equation"]++;var eqnoString=makeNumberString(LaTeXCounter["equation"]);var DEQanchor=document.createElement("a");if(lbl!=null){DEQanchor.id=lbl[1]};DEQanchor.className="eqno";var anchorSpan=document.createElement("span");anchorSpan.className="eqno";anchorSpan.style.display="none";anchorSpan.appendChild(document.createTextNode(eqnoString));DEQanchor.appendChild(anchorSpan);DEQtdno.appendChild(DEQanchor);var DEQspan=document.createElement("span");DEQspan.className="eqno";DEQspan.appendChild(document.createTextNode("("+eqnoString+")"));DEQtdno.appendChild(DEQspan);DEQtr.appendChild(DEQtdno);}
+  DEQtbody.appendChild(DEQtr);DEQtable.appendChild(DEQtbody);newFrag.appendChild(DEQtable);}
+  else{str[i]=str[i].replace(/\$\}\$/g,"");str[i]=str[i].replace(/\$\{\$/g,"");str[i]=str[i].replace(/\\maketitle/g,"");str[i]=str[i].replace(/\\begin\s*\{\s*document\s*\}/g,"");str[i]=str[i].replace(/\\end\s*\{\s*document\s*\}/g,"");str[i]=str[i].replace(/\\documentclass[^\}]*?\}/g,"");str[i]=str[i].replace(/\\usepackage[^\}]*?\}/g,"");str[i]=str[i].replace(/\\noindent/g,"");str[i]=str[i].replace(/\\notag/g,"");str[i]=str[i].replace(/\\ref\s*\{\s*(\w+)\}/g," \\[ref\\]$1\\[ ");str[i]=str[i].replace(/\\url\s*\{\s*([^\}\n]+)\}/g," \\[url\\]$1\\[ ");str[i]=str[i].replace(/\\href\s*\{\s*([^\}]+)\}\s*\{\s*([^\}]+)\}/g," \\[href\\]$1\\]$2\\[ ");str[i]=str[i].replace(/\\cite\s*\{\s*(\w+)\}/g," \\[cite\\]$1\\[ ");str[i]=str[i].replace(/\\qed/g,"\u220E");str[i]=str[i].replace(/\\endproof/g,"\u220E");str[i]=str[i].replace(/\\proof/g,"\\textbf{Proof: }");str[i]=str[i].replace(/\\n(?=\s)/g," \\[br\\] \\[ ");str[i]=str[i].replace(/\\newline/g," \\[br\\] \\[ ");str[i]=str[i].replace(/\\linebreak/g," \\[br\\] \\[ ");str[i]=str[i].replace(/\\smallskip/g," \\[logicalbreak\\]smallskip\\[ ");str[i]=str[i].replace(/\\medskip/g," \\[logicalbreak\\]medskip\\[ ");str[i]=str[i].replace(/\\bigskip/g," \\[logicalbreak\\]bigskip\\[ ");str[i]=str[i].replace(/[\n\r]+[ \f\n\r\t\v\u2028\u2029]*[\n\r]+/g," \\[logicalbreak\\]LaTeXMathML\\[ ");if(isIE){str[i]=str[i].replace(/\r/g," ");}
+  str[i]=str[i].replace(/\\bibitem\s*([^\{]*\{\s*\w*\s*\})/g," \\[bibitem\\]$1\\[ ");str[i]=str[i].replace(/\\bibitem\s*/g," \\[bibitem\\] \\[ ");str[i]=str[i].replace(/\\item\s*\[\s*(\w+)\s*\]/g," \\[alistitem\\]$1\\[ ");str[i]=str[i].replace(/\\item\s*/g," \\[alistitem\\] \\[ ");str[i]=str[i].replace(/\\appendix/g," \\[appendix\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*figure\s*\}([\s\S]+?)\\end\s*\{\s*figure\s*\}/g," \\[figure\\]$1\\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*table\s*\}([\s\S]+?)\\end\s*\{\s*table\s*\}/g," \\[table\\]$1\\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*theorem\s*\}/g," \\[theorem\\]Theorem \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*theorem\s*\}/g," \\[endtheorem\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*definition\s*\}/g," \\[definition\\]Definition \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*definition\s*\}/g," \\[enddefinition\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*lemma\s*\}/g," \\[lemma\\]Lemma \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*lemma\s*\}/g," \\[endlemma\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*corollary\s*\}/g," \\[corollary\\]Corollary \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*corollary\s*\}/g," \\[endcorollary\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*proposition\s*\}/g," \\[proposition\\]Proposition \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*proposition\s*\}/g," \\[endproposition\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*example\s*\}/g," \\[example\\]Example \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*example\s*\}/g," \\[endexample\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*exercise\s*\}/g," \\[exercise\\]Exercise \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*exercise\s*\}/g," \\[endexercise\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*thebibliography\s*\}\s*\{\s*\w+\s*\}/g," \\[thebibliography\\]References \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*thebibliography\s*\}/g," \\[thebibliography\\]References \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*thebibliography\s*\}/g," \\[endthebibliography\\]References \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*proof\s*\}/g," \\[proof\\]Proof: \\[ ");if(isIE){str[i]=str[i].replace(/\\end\s*\{\s*proof\s*\}/g,"\u220E \\[endproof\\] \\[ ");}else{str[i]=str[i].replace(/\\end\s*\{\s*proof\s*\}/g," \\[endproof\\] \\[ ");}
+  str[i]=str[i].replace(/\\title\s*\{\s*([^\}]+)\}/g," \\[title\\] \\[$1 \\[endtitle\\] \\[ ");str[i]=str[i].replace(/\\author\s*\{\s*([^\}]+)\}/g," \\[author\\] \\[$1 \\[endauthor\\] \\[ ");str[i]=str[i].replace(/\\address\s*\{\s*([^\}]+)\}/g," \\[address\\] \\[$1 \\[endaddress\\] \\[ ");str[i]=str[i].replace(/\\date\s*\{\s*([^\}]+)\}/g," \\[date\\] \\[$1 \\[enddate\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*keyword\s*\}/g," \\[keyword\\] \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*keyword\s*\}/g," \\[endkeyword\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*abstract\s*\}/g," \\[abstract\\] \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*abstract\s*\}/g," \\[endabstract\\] \\[ ");str[i]=str[i].replace(/\\begin\s*\{\s*(?!array|tabular)(\w+)\s*\}/g," \\[$1\\] \\[ ");str[i]=str[i].replace(/\\end\s*\{\s*(?!array|tabular)(\w+)\s*\}/g," \\[end$1\\] \\[ ");var sectionIndex=str[i].search(/\\section\s*\{\s*[\s\S]+\}/);while(sectionIndex>=0){str[i]=str[i].replace(/\\section\s*\{/," \\[section\\]");var delimcnt=1;for(var ii=sectionIndex;ii<str[i].length;ii++){if(str[i].charAt(ii)=="{"){delimcnt++};if(str[i].charAt(ii)=="}"){delimcnt--};if(delimcnt==0){str[i]=str[i].substring(0,ii)+"\\[ "+str[i].substring(ii+1,str[i].length);break;}};sectionIndex=str[i].search(/\\section\s*\{\s*[\s\S]+\}/);}
+  sectionIndex=str[i].search(/\\subsection\s*\{\s*[\s\S]+\}/);while(sectionIndex>=0){str[i]=str[i].replace(/\\subsection\s*\{/," \\[subsection\\]");var delimcnt=1;for(var ii=sectionIndex;ii<str[i].length;ii++){if(str[i].charAt(ii)=="{"){delimcnt++};if(str[i].charAt(ii)=="}"){delimcnt--};if(delimcnt==0){str[i]=str[i].substring(0,ii)+"\\[ "+str[i].substring(ii+1,str[i].length);break;}};sectionIndex=str[i].search(/\\subsection\s*\{\s*[\s\S]+\}/);}
+  sectionIndex=str[i].search(/\\subsubsection\s*\{\s*[\s\S]+\}/);while(sectionIndex>=0){str[i]=str[i].replace(/\\subsubsection\s*\{/," \\[subsubsection\\]");var delimcnt=1;for(var ii=sectionIndex;ii<str[i].length;ii++){if(str[i].charAt(ii)=="{"){delimcnt++};if(str[i].charAt(ii)=="}"){delimcnt--};if(delimcnt==0){str[i]=str[i].substring(0,ii)+"\\[ "+str[i].substring(ii+1,str[i].length);break;}};sectionIndex=str[i].search(/\\subsubsection\s*\{\s*[\s\S]+\}/);}
+  var CatToNextEven="";var strtmp=str[i].split("\\[");for(var j=0;j<strtmp.length;j++){if(j%2){var strtmparray=strtmp[j].split("\\]");switch(strtmparray[0]){case"section":var nodeTmp=document.createElement("H2");nodeTmp.className='section';sectionCntr++;for(var div in LaTeXCounter){LaTeXCounter[div]=0};var nodeAnchor=document.createElement("a");if(inAppendix){nodeAnchor.className='appendixsection';}else{nodeAnchor.className='section';}
+  var nodeNumString=makeNumberString("");var anchorSpan=document.createElement("span");anchorSpan.className="section";anchorSpan.style.display="none";anchorSpan.appendChild(document.createTextNode(nodeNumString));nodeAnchor.appendChild(anchorSpan);nodeTmp.appendChild(nodeAnchor);var nodeSpan=document.createElement("span");nodeSpan.className='section';nodeSpan.appendChild(document.createTextNode(nodeNumString+" "));nodeTmp.appendChild(nodeSpan);nodeTmp.appendChild(document.createTextNode(strtmparray[1]));newFrag.appendChild(nodeTmp);break;case"subsection":var nodeTmp=document.createElement("H3");nodeTmp.className='subsection';LaTeXCounter["subsection"]++;LaTeXCounter["subsubsection"]=0;var nodeAnchor=document.createElement("a");nodeAnchor.className='subsection';var nodeNumString=makeNumberString(LaTeXCounter["subsection"]);var anchorSpan=document.createElement("span");anchorSpan.className="subsection";anchorSpan.style.display="none";anchorSpan.appendChild(document.createTextNode(nodeNumString));nodeAnchor.appendChild(anchorSpan);nodeTmp.appendChild(nodeAnchor);var nodeSpan=document.createElement("span");nodeSpan.className='subsection';nodeSpan.appendChild(document.createTextNode(nodeNumString+". "));nodeTmp.appendChild(nodeSpan);nodeTmp.appendChild(document.createTextNode(strtmparray[1]));newFrag.appendChild(nodeTmp);break;case"subsubsection":var nodeTmp=document.createElement("H4");nodeTmp.className='subsubsection';LaTeXCounter["subsubsection"]++;var nodeAnchor=document.createElement("a");nodeAnchor.className='subsubsection';var nodeNumString=makeNumberString(LaTeXCounter["subsection"]+"."+LaTeXCounter["subsubsection"]);var anchorSpan=document.createElement("span");anchorSpan.className="subsubsection";anchorSpan.style.display="none";anchorSpan.appendChild(document.createTextNode(nodeNumString));nodeAnchor.appendChild(anchorSpan);nodeTmp.appendChild(nodeAnchor);var nodeSpan=document.createElement("span");nodeSpan.className='subsubsection';nodeSpan.appendChild(document.createTextNode(nodeNumString+". "));nodeTmp.appendChild(nodeSpan);nodeTmp.appendChild(document.createTextNode(strtmparray[1]));newFrag.appendChild(nodeTmp);break;case"href":var nodeTmp=document.createElement("a");nodeTmp.className='LaTeXMathML';nodeTmp.href=strtmparray[1];nodeTmp.appendChild(document.createTextNode(strtmparray[2]));newFrag.appendChild(nodeTmp);break;case"url":var nodeTmp=document.createElement("a");nodeTmp.className='LaTeXMathML';nodeTmp.href=strtmparray[1];nodeTmp.appendChild(document.createTextNode(strtmparray[1]));newFrag.appendChild(nodeTmp);break;case"figure":var nodeTmp=document.createElement("table");nodeTmp.className='figure';var FIGtbody=document.createElement("tbody");var FIGlbl=strtmparray[1].match(/\\label\s*\{\s*(\w+)\s*\}/);strtmparray[1]=strtmparray[1].replace(/\\label\s*\{\w+\}/g,"");var capIndex=strtmparray[1].search(/\\caption\s*\{[\s\S]+\}/);var FIGcap="";if(capIndex>=0){var tmp=strtmparray[1];var delimcnt=0;var capstart=-1;for(var pos=capIndex;pos<tmp.length;pos++){if(tmp.charAt(pos)=="{"){delimcnt++};if(tmp.charAt(pos)=="}"){delimcnt--};if(delimcnt==1&&capstart<0){capstart=pos+1};if(delimcnt==0&&capstart>0){capend=pos-1;FIGcap=tmp.substring(capstart,pos);break}}}
+  var FIGtr2=document.createElement("tr");var FIGtd2=document.createElement("td");FIGtd2.className="caption";var FIGanchor=document.createElement("a");FIGanchor.className="figure";if(FIGlbl!=null){FIGanchor.id=FIGlbl[1];}
+  LaTeXCounter["figure"]++;var fignmbr=makeNumberString(LaTeXCounter["figure"]);var anchorSpan=document.createElement("span");anchorSpan.className="figure";anchorSpan.style.display="none";anchorSpan.appendChild(document.createTextNode(fignmbr));FIGanchor.appendChild(anchorSpan);FIGtd2.appendChild(FIGanchor);var FIGspan=document.createElement("span");FIGspan.className="figure";FIGspan.appendChild(document.createTextNode("Figure "+fignmbr+". "));FIGtd2.appendChild(FIGspan);FIGtd2.appendChild(document.createTextNode(""+FIGcap));FIGtr2.appendChild(FIGtd2);FIGtbody.appendChild(FIGtr2);var IsSpecial=false;var FIGinfo=strtmparray[1].match(/\\includegraphics\s*\{([^\}]+)\}/);if(FIGinfo==null){FIGinfo=strtmparray[1].match(/\\includegraphics\s*\[[^\]]*\]\s*\{\s*([^\}]+)\s*\}/);}
+  if(FIGinfo==null){FIGinfo=strtmparray[1].match(/\\special\s*\{\s*([^\}]+)\}/);IsSpecial=true};if(FIGinfo!=null){var FIGtr1=document.createElement("tr");var FIGtd1=document.createElement("td");FIGtd1.className="image";var FIGimg=document.createElement("img");var FIGsrc=FIGinfo[1];FIGimg.src=FIGsrc;FIGimg.alt="Figure "+FIGsrc+" did not load";FIGimg.title="Figure "+fignmbr+". "+FIGcap;FIGimg.id="figure"+fignmbr;FIGtd1.appendChild(FIGimg);FIGtr1.appendChild(FIGtd1);FIGtbody.appendChild(FIGtr1);}
+  nodeTmp.appendChild(FIGtbody);newFrag.appendChild(nodeTmp);break;case"table":var nodeTmp=document.createElement("table");if(strtmparray[1].search(/\\centering/)>=0){nodeTmp.className='LaTeXtable centered';nodeTmp.align="center";}else{nodeTmp.className='LaTeXtable';};tableid++;nodeTmp.id="LaTeXtable"+tableid;var TABlbl=strtmparray[1].match(/\\label\s*\{\s*(\w+)\s*\}/);strtmparray[1]=strtmparray[1].replace(/\\label\s*\{\w+\}/g,"");var capIndex=strtmparray[1].search(/\\caption\s*\{[\s\S]+\}/);var TABcap="";if(capIndex>=0){var tmp=strtmparray[1];var delimcnt=0;var capstart=-1;for(var pos=capIndex;pos<tmp.length;pos++){if(tmp.charAt(pos)=="{"){delimcnt++};if(tmp.charAt(pos)=="}"){delimcnt--};if(delimcnt==1&&capstart<0){capstart=pos+1};if(delimcnt==0&&capstart>0){capend=pos-1;TABcap=tmp.substring(capstart,pos);break}}}
+  if(TABcap!=""){var TABtbody=document.createElement("tbody");var TABcaption=document.createElement("caption");TABcaption.className="LaTeXtable centered";var TABanchor=document.createElement("a");TABanchor.className="LaTeXtable";if(TABlbl!=null){TABanchor.id=TABlbl[1];}
+  LaTeXCounter["table"]++;var tabnmbr=makeNumberString(LaTeXCounter["table"]);var anchorSpan=document.createElement("span");anchorSpan.className="LaTeXtable";anchorSpan.style.display="none";anchorSpan.appendChild(document.createTextNode(tabnmbr));TABanchor.appendChild(anchorSpan);TABcaption.appendChild(TABanchor);var TABspan=document.createElement("span");TABspan.className="LaTeXtable";TABspan.appendChild(document.createTextNode("Table "+tabnmbr+". "));TABcaption.appendChild(TABspan);TABcaption.appendChild(document.createTextNode(""+TABcap));nodeTmp.appendChild(TABcaption);}
+  var TABinfo=strtmparray[1].match(/\\begin\s*\{\s*tabular\s*\}([\s\S]+)\\end\s*\{\s*tabular\s*\}/);if(TABinfo!=null){var TABtbody=document.createElement('tbody');var TABrow=null;var TABcell=null;var row=0;var col=0;var TABalign=TABinfo[1].match(/^\s*\{([^\}]+)\}/);TABinfo=TABinfo[1].replace(/^\s*\{[^\}]+\}/,"");TABinfo=TABinfo.replace(/\\hline/g,"");TABalign[1]=TABalign[1].replace(/\|/g,"");TABalign[1]=TABalign[1].replace(/\s/g,"");TABinfo=TABinfo.split("\\\\");for(row=0;row<TABinfo.length;row++){TABrow=document.createElement("tr");TABinfo[row]=TABinfo[row].split("&");for(col=0;col<TABinfo[row].length;col++){TABcell=document.createElement("td");switch(TABalign[1].charAt(col)){case"l":TABcell.align="left";break;case"c":TABcell.align="center";break;case"r":TABcell.align="right";break;default:TABcell.align="left";};TABcell.appendChild(document.createTextNode(TABinfo[row][col]));TABrow.appendChild(TABcell);}
+  TABtbody.appendChild(TABrow);}
+  nodeTmp.appendChild(TABtbody);}
+  newFrag.appendChild(nodeTmp);break;case"logicalbreak":var nodeTmp=document.createElement("p");nodeTmp.className=strtmparray[1];nodeTmp.appendChild(document.createTextNode("\u00A0"));newFrag.appendChild(nodeTmp);break;case"appendix":inAppendix=true;sectionCntr=0;break;case"alistitem":var EndDiv=document.createElement("div");EndDiv.className="endlistitem";newFrag.appendChild(EndDiv);var BegDiv=document.createElement("div");BegDiv.className="listitem";if(strtmparray[1]!=" "){var BegSpan=document.createElement("span");BegSpan.className="listitemmarker";var boldBegSpan=document.createElement("b");boldBegSpan.appendChild(document.createTextNode(strtmparray[1]+" "));BegSpan.appendChild(boldBegSpan);BegDiv.appendChild(BegSpan);}
+  newFrag.appendChild(BegDiv);break;case"br":newFrag.appendChild(document.createElement("br"));break;case"bibitem":newFrag.appendChild(document.createElement("br"));var nodeTmp=document.createElement("a");nodeTmp.className='bibitem';var nodeSpan=document.createElement("span");nodeSpan.className='bibitem';bibcntr++;var lbl=strtmparray[1].match(/\{\s*(\w+)\s*\}/);strtmparray[1]=strtmparray[1].replace(/\s*\{\s*\w+\s*\}/g,"");strtmparray[1]=strtmparray[1].replace(/^\s*\[/,"");strtmparray[1]=strtmparray[1].replace(/\s*\]$/,"");strtmparray[1]=strtmparray[1].replace(/^\s+|\s+$/g,"");if(lbl==null){biblist[bibcntr]="bibitem"+bibcntr}else{biblist[bibcntr]=lbl[1];};nodeTmp.name=biblist[bibcntr];nodeTmp.id=biblist[bibcntr];if(strtmparray[1]!=""){nodeSpan.appendChild(document.createTextNode(strtmparray[1]));}else{nodeSpan.appendChild(document.createTextNode("["+bibcntr+"]"));}
+  nodeTmp.appendChild(nodeSpan);newFrag.appendChild(nodeTmp);break;case"cite":var nodeTmp=document.createElement("a");nodeTmp.className='cite';nodeTmp.name='cite';nodeTmp.href="#"+strtmparray[1];newFrag.appendChild(nodeTmp);break;case"ref":var nodeTmp=document.createElement("a");nodeTmp.className='ref';nodeTmp.name='ref';nodeTmp.href="#"+strtmparray[1];newFrag.appendChild(nodeTmp);break;default:var nodeTmp=document.createElement("div");nodeTmp.className=strtmparray[0];if(IsCounter.test(strtmparray[0])){LaTeXCounter[strtmparray[0]]++;var nodeAnchor=document.createElement("a");nodeAnchor.className=strtmparray[0];var divnum=makeNumberString(LaTeXCounter[strtmparray[0]]);var anchorSpan=document.createElement("span");anchorSpan.className=strtmparray[0];anchorSpan.appendChild(document.createTextNode(divnum));anchorSpan.style.display="none";nodeAnchor.appendChild(anchorSpan);nodeTmp.appendChild(nodeAnchor);var nodeSpan=document.createElement("span");nodeSpan.className=strtmparray[0];nodeSpan.appendChild(document.createTextNode(strtmparray[1]+" "+divnum+". "));nodeTmp.appendChild(nodeSpan);}
+  if(isIE){if(strtmparray[0]==("thebibliography"||"abstract"||"keyword"||"proof")){var nodeSpan=document.createElement("span");nodeSpan.className=strtmparray[0];nodeSpan.appendChild(document.createTextNode(strtmparray[1]));nodeTmp.appendChild(nodeSpan);}}
+  if(strtmparray[0]=="endenumerate"||strtmparray[0]=="enditemize"||strtmparray[0]=="enddescription"){var endDiv=document.createElement("div");endDiv.className="endlistitem";newFrag.appendChild(endDiv);}
+  newFrag.appendChild(nodeTmp);if(strtmparray[0]=="enumerate"||strtmparray[0]=="itemize"||strtmparray[0]=="description"){var endDiv=document.createElement("div");endDiv.className="listitem";newFrag.appendChild(endDiv);}}}else{strtmp[j]=strtmp[j].replace(/\\\$/g,"<per>");strtmp[j]=strtmp[j].replace(/\$([^\$]+)\$/g," \\[$1\\[ ");strtmp[j]=strtmp[j].replace(/<per>/g,"\\$");strtmp[j]=strtmp[j].replace(/\\begin\s*\{\s*math\s*\}([\s\S]+?)\\end\s*\{\s*math\s*\}/g," \\[$1\\[ ");var strtmptmp=strtmp[j].split("\\[");for(var jjj=0;jjj<strtmptmp.length;jjj++){if(jjj%2){var nodeTmp=document.createElement("span");nodeTmp.className='inlinemath';nodeTmp.appendChild(document.createTextNode("$"+strtmptmp[jjj]+"$"));newFrag.appendChild(nodeTmp);}else{var TagIndex=strtmptmp[jjj].search(/\\\w+/);var tmpIndex=TagIndex;while(tmpIndex>-1){if(/^\\textcolor/.test(strtmptmp[jjj].substring(TagIndex,strtmptmp[jjj].length))){strtmptmp[jjj]=strtmptmp[jjj].replace(/\\textcolor\s*\{\s*(\w+)\s*\}\s*/," \\[textcolor\\]$1\\]|");}else{if(/^\\colorbox/.test(strtmptmp[jjj].substring(TagIndex,strtmptmp[jjj].length))){strtmptmp[jjj]=strtmptmp[jjj].replace(/\\colorbox\s*\{\s*(\w+)\s*\}\s*/," \\[colorbox\\]$1\\]|");}else{strtmptmp[jjj]=strtmptmp[jjj].substring(0,TagIndex)+strtmptmp[jjj].substring(TagIndex,strtmptmp[jjj].length).replace(/\\\s*(\w+)\s*/," \\[$1\\]|");}}
+  TagIndex+=strtmptmp[jjj].substring(TagIndex,strtmptmp[jjj].length).search(/\|/);TagIndex++;strtmptmp[jjj]=strtmptmp[jjj].replace(/\\\]\|/,"\\] ");if(strtmptmp[jjj].charAt(TagIndex)=="{"){strtmptmp[jjj]=strtmptmp[jjj].substring(0,TagIndex)+strtmptmp[jjj].substring(TagIndex+1,strtmptmp[jjj].length);var delimcnt=1;for(var kk=TagIndex;kk<strtmptmp[jjj].length;kk++){if(strtmptmp[jjj].charAt(kk)=="{"){delimcnt++};if(strtmptmp[jjj].charAt(kk)=="}"){delimcnt--};if(delimcnt==0){break;}}
+  strtmptmp[jjj]=strtmptmp[jjj].substring(0,kk)+"\\[ "+strtmptmp[jjj].substring(kk+1,strtmptmp[jjj].length);TagIndex=kk+3;}else{strtmptmp[jjj]=strtmptmp[jjj].substring(0,TagIndex)+"\\[ "+strtmptmp[jjj].substring(TagIndex+1,strtmptmp[jjj].length);TagIndex=TagIndex+3;}
+  if(TagIndex<strtmptmp[jjj].length){tmpIndex=strtmptmp[jjj].substring(TagIndex,strtmptmp[jjj].length).search(/\\\w+/);}
+  else{tmpIndex=-1};TagIndex+=tmpIndex;}
+  strtmptmp[jjj]=strtmptmp[jjj].replace(/\\\\\s*\\\\/g,"\\\\");strtmptmp[jjj]=strtmptmp[jjj].replace(/\\\\/g," \\[br\\] \\[ ");strtmptmp[jjj]=strtmptmp[jjj].replace(/\\label\s*\{\s*(\w+)\s*\}/g," \\[a\\]$1\\[ ");var strlbls=strtmptmp[jjj].split("\\[");for(var jj=0;jj<strlbls.length;jj++){if(jj%2){var strtmparray=strlbls[jj].split("\\]");switch(strtmparray[0]){case"textcolor":var nodeTmp=document.createElement("span");nodeTmp.className='LaTeXColor';if(IsColorName.test(strtmparray[1].toLowerCase())){nodeTmp.style.color=LaTeXColor[strtmparray[1].toLowerCase()];}else{nodeTmp.style.color=strtmparray[1];};nodeTmp.appendChild(document.createTextNode(strtmparray[2]));newFrag.appendChild(nodeTmp);break;case"colorbox":var nodeTmp=document.createElement("span");nodeTmp.className='LaTeXColor';if(IsColorName.test(strtmparray[1].toLowerCase())){nodeTmp.style.background=LaTeXColor[strtmparray[1].toLowerCase()];}else{nodeTmp.style.background=strtmparray[1];};nodeTmp.appendChild(document.createTextNode(strtmparray[2]));newFrag.appendChild(nodeTmp);break;case"br":newFrag.appendChild(document.createElement("br"));break;case"a":var nodeTmp=document.createElement("a");nodeTmp.className='LaTeXMathMLlabel';nodeTmp.id=strtmparray[1];nodeTmp.style.display="none";newFrag.appendChild(nodeTmp);break;default:var nodeTmp=document.createElement("span");nodeTmp.className=strtmparray[0];nodeTmp.appendChild(document.createTextNode(strtmparray[1]))
+  newFrag.appendChild(nodeTmp);}}else{newFrag.appendChild(document.createTextNode(strlbls[jj]));}}}}}}}};TheBody.parentNode.replaceChild(newFrag,TheBody);}}}
+  return TheBody;}
+  function LaTeXDivsAndRefs(thebody){var TheBody=thebody;var EndDivClass=null;var AllDivs=TheBody.getElementsByTagName("div");var lbl2id="";var lblnode=null;for(var i=AllDivs.length-1;i>=0;i--){EndDivClass=AllDivs[i].className.match(/end\w+/);if(EndDivClass!=null){EndDivClass=EndDivClass[0];var DivClass=EndDivClass.substring(3,EndDivClass.length);var EndDivNode=AllDivs[i];break;}}
+  while(EndDivClass!=null){var newFrag=document.createDocumentFragment();var RootNode=EndDivNode.parentNode;var ClassCount=1;while(EndDivNode.previousSibling!=null&&ClassCount>0){switch(EndDivNode.previousSibling.className){case EndDivClass:ClassCount++;newFrag.insertBefore(EndDivNode.previousSibling,newFrag.firstChild);break;case DivClass:if(EndDivNode.previousSibling.nodeName=="DIV"){ClassCount--;if(lbl2id!=""){EndDivNode.previousSibling.id=lbl2id;lbl2id=""}
+  if(ClassCount==0){RootNode=EndDivNode.previousSibling;}else{newFrag.insertBefore(EndDivNode.previousSibling,newFrag.firstChild);}};break;case'LaTeXMathMLlabel':lbl2id=EndDivNode.previousSibling.id;EndDivNode.parentNode.removeChild(EndDivNode.previousSibling);break;default:newFrag.insertBefore(EndDivNode.previousSibling,newFrag.firstChild);}}
+  RootNode.appendChild(newFrag);EndDivNode.parentNode.removeChild(EndDivNode);AllDivs=TheBody.getElementsByTagName("DIV");for(i=AllDivs.length-1;i>=0;i--){EndDivClass=AllDivs[i].className.match(/end\w+/);if(EndDivClass!=null){ClassCount=0;EndDivClass=EndDivClass[0];DivClass=EndDivClass.substring(3,EndDivClass.length);EndDivNode=AllDivs[i];RootNode=EndDivNode.parentNode;break;}}}
+  var AllDivs=TheBody.getElementsByTagName("div");var DIV2LI=null;for(var i=0;i<AllDivs.length;i++){if(AllDivs[i].className=="itemize"||AllDivs[i].className=="enumerate"||AllDivs[i].className=="description"){if(AllDivs[i].className=="itemize"){RootNode=document.createElement("UL");}else{RootNode=document.createElement("OL");}
+  RootNode.className='LaTeXMathML';if(AllDivs[i].hasChildNodes()){AllDivs[i].removeChild(AllDivs[i].firstChild)};while(AllDivs[i].hasChildNodes()){if(AllDivs[i].firstChild.hasChildNodes()){DIV2LI=document.createElement("LI");while(AllDivs[i].firstChild.hasChildNodes()){DIV2LI.appendChild(AllDivs[i].firstChild.firstChild);}
+  if(DIV2LI.firstChild.className=="listitemmarker"){DIV2LI.style.listStyleType="none";}
+  RootNode.appendChild(DIV2LI)}
+  AllDivs[i].removeChild(AllDivs[i].firstChild);}
+  AllDivs[i].appendChild(RootNode);}}
+  var AllAnchors=TheBody.getElementsByTagName("a");for(var i=0;i<AllAnchors.length;i++){if(AllAnchors[i].className=="ref"||AllAnchors[i].className=="cite"){var label=AllAnchors[i].href.match(/\#(\w+)/);if(label!=null){var labelNode=document.getElementById(label[1]);if(labelNode!=null){var TheSpans=labelNode.getElementsByTagName("SPAN");if(TheSpans!=null){var refNode=TheSpans[0].cloneNode(true);refNode.style.display="inline"
+  refNode.className=AllAnchors[i].className;AllAnchors[i].appendChild(refNode);}}}}}
+  return TheBody;}
+  var AMbody;var AMnoMathML=false,AMtranslated=false;function translate(spanclassAM){if(!AMtranslated){AMtranslated=true;AMinitSymbols();var LaTeXContainers=[];var AllContainers=document.getElementsByTagName('*');var ExtendName="";for(var k=0,l=0;k<AllContainers.length;k++){ExtendName=" "+AllContainers[k].className+" ";if(ExtendName.match(/\sLaTeX\s/)!=null){LaTeXContainers[l]=AllContainers[k];l++;}};if(LaTeXContainers.length>0){for(var m=0;m<LaTeXContainers.length;m++){AMbody=LaTeXContainers[m];try{AMbody=LaTeXDivsAndRefs(LaTeXpreProcess(AMbody));}catch(err){alert("Unknown Error: Defaulting to Original LaTeXMathML");}
+  if(AMbody.tagName=="PRE"){var PreChilds=document.createDocumentFragment();var DivChilds=document.createElement("DIV");while(AMbody.hasChildNodes()){DivChilds.appendChild(AMbody.firstChild);}
+  PreChilds.appendChild(DivChilds);AMbody.parentNode.replaceChild(PreChilds,AMbody);AMbody=DivChilds;}
+  AMprocessNode(AMbody,false,spanclassAM);}}else{AMbody=document.getElementsByTagName("body")[0];try{AMbody=LaTeXDivsAndRefs(LaTeXpreProcess(AMbody));}catch(err){alert("Unknown Error: Defaulting to Original LaTeXMathML");}
+  AMprocessNode(AMbody,false,spanclassAM);}}}
+  if(isIE){document.write("<object id=\"mathplayer\" classid=\"clsid:32F66A20-7614-11D4-BD11-00104BD3F987\"></object>");document.write("<?import namespace=\"m\" implementation=\"#mathplayer\"?>");}
+  function generic()
+  {translate();};if(typeof window.addEventListener!='undefined')
+  {window.addEventListener('load',generic,false);}
+  else if(typeof document.addEventListener!='undefined')
+  {document.addEventListener('load',generic,false);}
+  else if(typeof window.attachEvent!='undefined')
+  {window.attachEvent('onload',generic);}
+  else
+  {if(typeof window.onload=='function')
+  {var existing=onload;window.onload=function()
+  {existing();generic();};}
+  else
+  {window.onload=generic;}}
+  /*]]>*/
+  </script>
+</head>
+<body>
+<h1 id="machine-learning-engineer-nanodegree">Machine Learning Engineer Nanodegree</h1>
+<h2 id="capstone-project">Capstone Project</h2>
+<p>S Iyer May 8th, 2017</p>
+<h2 id="i.-definition">I. Definition</h2>
+<h3 id="project-overview">Project Overview</h3>
+<p>Bike sharing systems are a new generation of traditional bike rentals where whole process from membership, rental and return back has become automatic. These provide an alternative means of transportation in cities by making bicycling more convenient for users, as they do not need to worry about parking or theft of their own bicycle. Cities can benefit by providing a new sustainable transportation option that can increase access to transit, but also reduce crowding on overburdened transit systems. Today, there exists great interest in these systems due to their important role in traffic, environmental and health issues.</p>
+<p>The work presented here analyzes the effect of weather on the use of the Washington, DC, bikeshare system. Hourly weather data, including temperature, rainfall, snow, wind, fog, and humidity levels are linked to hourly usage data. This information is useful for understanding bicycling behavior and also for those planning bikeshare systems in other cities.</p>
+<h3 id="problem-statement">Problem Statement</h3>
+<p>In Washington, DC, Capital Bikeshare (CaBi) is one of the largest bikeshare system in the nation with over 1,200 bicycles at 140 stations(Alta Bicycle Share, Inc. 2012). The system grew out of an early bikesharing pilot project, SmartBike D.C., launched in 2008(Alta Bicycle Share, Inc. 2012).</p>
+<p>A wealth of data on travel behavior is being collected by these systems and Capital Bikeshare has made the trip logs of every trip taken in the system publically available [1]. This analysis exploits the dataset of bicycle trips made using Capital Bikeshare in order to determine how bicycle usage varies under different weather conditions and other calendar factors. We predict the number of rentals every hour considering various factors like temperature (both hot and cold), humidity, windspeed, and various other weather conditions that may affect bicycle usage. We are also able to control for how patterns of daylight and darkness affect trip behavior.</p>
+<p>These results have implications for understanding the sensitivity of bicycle usage to weather conditions and how this can affect the usefulness of bicycling as an alternative mode of travel. It is also informative for those planning or operating bikesharing systems. We'll obtain these relationships by exploring various machine learning models including linear regression, decision trees, random forest and gradient boosted trees.</p>
+<h3 id="metrics">Metrics</h3>
+<p>We'll perform the comparison of the models in terms of mean absolute error (MAE), correlation coefficient, relative absolute error (RAE), and root relative squared error (RRSE) as described by Fanaee-T et. al.[1].</p>
+<p><img src="images/rae.png" alt="RAE" height="35" /></p>
+<p><img src="images/rrse.png" alt="RRSE" height="35" /></p>
+<p><img src="images/cc.png" alt="Correlation Coefficient" height="35" /></p>
+<p>where,</p>
+<p><img src="images/spa.png" alt="SPA" height="35" /></p>
+<p><img src="images/sp.png" alt="SP" height="35" /></p>
+<p><img src="images/sa.png" alt="SA" height="35" /></p>
+<p>In the above equations, <span class="LaTeX">$a$</span> denotes actual target values, <span class="LaTeX">$p$</span> denotes predicted target values, <span class="LaTeX">$\bar{a}$</span> represents the average of actual target value, <span class="LaTeX">$\bar{p}$</span> denotes the average of predicted target values and <span class="LaTeX">$n$</span> denotes the sample size.</p>
+<p>This being a regression problem (predicting count) we use squared error as the metric of choice. The relative form of these errors remove the scale of these counts (100 vs 100 million) from the comparisions.</p>
+<!-- ()() -->
+<h2 id="ii.-analysis">II. Analysis</h2>
+<h3 id="data-exploration">Data Exploration</h3>
+<p>The dataset “Bike-Sharing-Dataset” was obtained by the UCI Machine Learning Repository. This is a collection of databeses, domain theories and data generators which are used by the machine learning community for empirical analyses. The archive was created in 1987 by David Aha and fellow graduate students at UC Irvine. Since then it has been widely used by student, educators and researchers. The current website was designed in 2007. The UCI Machine Learning Repository is based on donations of researchers, mostly outside of UCI.</p>
+<p>This dataset contains the hourly and daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information. The Laboratory of Artificial Intelligence and Decision Support (LIAAD), University of Porto, aggregated the data on two hourly and daily basis and then extracted and added the corresponding weather and seasonal information that were extracted from http://www.freemeteo.com</p>
+<h4 id="attribute-information">Attribute Information:</h4>
+<p>The dataset contains the following fields:</p>
+<ul>
+<li>instant: record index</li>
+<li>dteday : date</li>
+<li>season : season (1:springer, 2:summer, 3:fall, 4:winter)</li>
+<li>yr : year (0: 2011, 1:2012)</li>
+<li>mnth : month ( 1 to 12)</li>
+<li>hr : hour (0 to 23)</li>
+<li>holiday : whether day is holiday or not</li>
+<li>weekday : day of the week</li>
+<li>workingday : if day is neither weekend nor holiday is 1, otherwise is 0.</li>
+<li>weathersit :
+<ul>
+<li>1: Clear, Few clouds, Partly cloudy, Partly cloudy</li>
+<li>2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist</li>
+<li>3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds</li>
+<li>4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog</li>
+</ul></li>
+<li>temp : Normalized temperature in Celsius. The values are derived via <span class="LaTeX">$(t - t_min)/(t_max - t_min)$</span>, <span class="LaTeX">$t_min=-8$</span>, <span class="LaTeX">$t_max=+39$</span> (only in hourly scale)</li>
+<li>atemp: Normalized feeling temperature in Celsius. The values are derived via <span class="LaTeX">$(t-t_min)/(t_max-t_min)$</span>, <span class="LaTeX">$t_min=-16$</span>, <span class="LaTeX">$t_max=+50$</span> (only in hourly scale)</li>
+<li>hum: Normalized humidity. The values are divided to 100 (max)</li>
+<li>windspeed: Normalized wind speed. The values are divided to 67 (max)</li>
+<li>casual: count of casual users</li>
+<li>registered: count of registered users</li>
+<li>cnt: count of total rental bikes including both casual and registered</li>
+</ul>
+<p>Given below is a random sample of 10 rows from the dataset.</p>
+<table style="width:100%;">
+<colgroup>
+<col width="6%" />
+<col width="7%" />
+<col width="5%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="6%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="4%" />
+<col width="5%" />
+<col width="4%" />
+<col width="7%" />
+<col width="5%" />
+<col width="8%" />
+<col width="3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>instant</th>
+<th>dteday</th>
+<th>season</th>
+<th>yr</th>
+<th>mnth</th>
+<th>hr</th>
+<th>holiday</th>
+<th>weekday</th>
+<th>workingday</th>
+<th>weathersit</th>
+<th>temp</th>
+<th>atemp</th>
+<th>hum</th>
+<th>windspeed</th>
+<th>casual</th>
+<th>registered</th>
+<th>cnt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>9666</td>
+<td>2012-02-12</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>16</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.1667</td>
+<td>0.34</td>
+<td>0.4627</td>
+<td>16</td>
+<td>148</td>
+<td>164</td>
+</tr>
+<tr class="even">
+<td>1775</td>
+<td>2011-03-19</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>15</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>0.5</td>
+<td>0.4848</td>
+<td>0.29</td>
+<td>0.4179</td>
+<td>170</td>
+<td>143</td>
+<td>313</td>
+</tr>
+<tr class="odd">
+<td>10487</td>
+<td>2012-03-18</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0.46</td>
+<td>0.4545</td>
+<td>0.82</td>
+<td>0.1343</td>
+<td>25</td>
+<td>88</td>
+<td>113</td>
+</tr>
+<tr class="even">
+<td>17269</td>
+<td>2012-12-27</td>
+<td>1</td>
+<td>1</td>
+<td>12</td>
+<td>9</td>
+<td>0</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>0.26</td>
+<td>0.2121</td>
+<td>0.6</td>
+<td>0.4925</td>
+<td>6</td>
+<td>127</td>
+<td>133</td>
+</tr>
+<tr class="odd">
+<td>13028</td>
+<td>2012-07-02</td>
+<td>3</td>
+<td>1</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>0.76</td>
+<td>0.7121</td>
+<td>0.58</td>
+<td>0.2239</td>
+<td>12</td>
+<td>31</td>
+<td>43</td>
+</tr>
+<tr class="even">
+<td>5540</td>
+<td>2011-08-23</td>
+<td>3</td>
+<td>0</td>
+<td>8</td>
+<td>17</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0.72</td>
+<td>0.6515</td>
+<td>0.34</td>
+<td>0.2239</td>
+<td>133</td>
+<td>339</td>
+<td>472</td>
+</tr>
+<tr class="odd">
+<td>6754</td>
+<td>2011-10-13</td>
+<td>4</td>
+<td>0</td>
+<td>10</td>
+<td>23</td>
+<td>0</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>0.58</td>
+<td>0.5455</td>
+<td>0.88</td>
+<td>0.194</td>
+<td>2</td>
+<td>45</td>
+<td>47</td>
+</tr>
+<tr class="even">
+<td>12572</td>
+<td>2012-06-13</td>
+<td>2</td>
+<td>1</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>0.66</td>
+<td>0.5909</td>
+<td>0.94</td>
+<td>0.194</td>
+<td>7</td>
+<td>27</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td>929</td>
+<td>2011-02-11</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>7</td>
+<td>0</td>
+<td>5</td>
+<td>1</td>
+<td>1</td>
+<td>0.08</td>
+<td>0.1667</td>
+<td>0.73</td>
+<td>0</td>
+<td>1</td>
+<td>73</td>
+<td>74</td>
+</tr>
+<tr class="even">
+<td>603</td>
+<td>2011-01-28</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>8</td>
+<td>0</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>0.16</td>
+<td>0.197</td>
+<td>0.86</td>
+<td>0.0896</td>
+<td>2</td>
+<td>155</td>
+<td>157</td>
+</tr>
+</tbody>
+</table>
+<p>The table below provides the statistical summary of each categorical column in the dataset.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>dteday</th>
+<th>season</th>
+<th>yr</th>
+<th>mnth</th>
+<th>hr</th>
+<th>holiday</th>
+<th>weekday</th>
+<th>workingday</th>
+<th>weathersit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>count</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+</tr>
+<tr class="even">
+<td>unique</td>
+<td>731</td>
+<td>4</td>
+<td>2</td>
+<td>12</td>
+<td>24</td>
+<td>2</td>
+<td>7</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>top</td>
+<td>2012-08-29 00:00:00</td>
+<td>3</td>
+<td>1</td>
+<td>7</td>
+<td>17</td>
+<td>0</td>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>freq</td>
+<td>24</td>
+<td>4496</td>
+<td>8734</td>
+<td>1488</td>
+<td>730</td>
+<td>16879</td>
+<td>2512</td>
+<td>11865</td>
+<td>11413</td>
+</tr>
+<tr class="odd">
+<td>first</td>
+<td>2011-01-01 00:00:00</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+<tr class="even">
+<td>last</td>
+<td>2012-12-31 00:00:00</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+<td>nan</td>
+</tr>
+</tbody>
+</table>
+<p>The table below provides the statistical summary of each continuous column in the dataset.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>temp</th>
+<th>atemp</th>
+<th>hum</th>
+<th>windspeed</th>
+<th>casual</th>
+<th>registered</th>
+<th>cnt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>count</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+<td>17379</td>
+</tr>
+<tr class="even">
+<td>mean</td>
+<td>0.496987</td>
+<td>0.475775</td>
+<td>0.627229</td>
+<td>0.190098</td>
+<td>35.6762</td>
+<td>153.787</td>
+<td>189.463</td>
+</tr>
+<tr class="odd">
+<td>std</td>
+<td>0.192556</td>
+<td>0.17185</td>
+<td>0.19293</td>
+<td>0.12234</td>
+<td>49.305</td>
+<td>151.357</td>
+<td>181.388</td>
+</tr>
+<tr class="even">
+<td>min</td>
+<td>0.02</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>25%</td>
+<td>0.34</td>
+<td>0.3333</td>
+<td>0.48</td>
+<td>0.1045</td>
+<td>4</td>
+<td>34</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td>50%</td>
+<td>0.5</td>
+<td>0.4848</td>
+<td>0.63</td>
+<td>0.194</td>
+<td>17</td>
+<td>115</td>
+<td>142</td>
+</tr>
+<tr class="odd">
+<td>75%</td>
+<td>0.66</td>
+<td>0.6212</td>
+<td>0.78</td>
+<td>0.2537</td>
+<td>48</td>
+<td>220</td>
+<td>281</td>
+</tr>
+<tr class="even">
+<td>max</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0.8507</td>
+<td>367</td>
+<td>886</td>
+<td>977</td>
+</tr>
+</tbody>
+</table>
+<p>For numeric data, the table includes count, mean, std, min, max as well as the quartiles. For categorical data, the summary includes count, unique, top, and freq. The 'top' is the most common value and the 'freq' is the most common value’s frequency. Timestamp column ('dteday') also include the first and last item.</p>
+<p>Observations on features:</p>
+<ul>
+<li>No data is missing from any columns.</li>
+<li>There are two columns - 'casual' and 'registered' - that add up to the output column ('cnt'). These columns should not be used in the predictive models and are removed from the data.</li>
+<li>There is one col - 'dteday' - that has the date of rental. It is redundant since year and month are already provided separately. We choose to remove this column from the data.</li>
+</ul>
+<h3 id="exploratory-visualization">Exploratory Visualization</h3>
+<h4 id="correlation-between-continuous-features">Correlation between continuous features</h4>
+<p>The plot below shows the pairwise correlation between the continuous features</p>
+<p><img src="images/corr_plot.png" alt="Correlation Plot" width="800" /></p>
+<p>Observations on correlation plot:</p>
+<p>The correlation plot gives the correlation between pairwise columns in the data. The diagonals of the plot give the distribution of each column. As expected, 'temp' and 'atemp' have a strong correlation and contain redundant information. We choose to remove 'atemp' from the Bikes dataframe. The remaining continuous features don't exhibit a correlation between themselves.</p>
+<h4 id="relationship-with-temperature-and-hour-of-day">Relationship with temperature and hour of day</h4>
+<p>Another relationship that can be visualized is between bike rentals and the temperature + hour of day. Following swarmplot provides a good visual representation of this relationship.</p>
+<p><img src="images/swarm_plot.png" alt="Swarm Plot" width="1000" /></p>
+<p>Observations on swarm plot:</p>
+<p>The swarm plot provides a categorical scatterplot with non-overlapping points. The swarm plot is similar to a simple scatterplot, but the points are adjusted (only along the categorical axis) so that they don’t overlap. This gives a better representation of the distribution of values, although it does not scale as well to large numbers of observations (both in terms of the ability to show all the points and in terms of the computation needed to arrange them). This style of plot is often called a “beeswarm”. The plot above gives the distribution of number bike rentals for each hour in the day. The colors of the data points indicate the temperature of the day.</p>
+<p>We can observed that bike rentals are higher on working days during commute hours (morning around 8 am and evening around 5 pm). Compared to that, on a non-workingday the distribution is flat or more even during the whole day. This is expected as the major population would have a need for a bike during those hours.</p>
+<p>Another observation from the plot is that bike rentals are higher when the temperature is moderately high (above the 3rd quartile). This is consistently seen throughout all hours for working and non-working days. This also makes sense since riding a bike would not be preferred on colder days/nights.</p>
+<p>Thus, we can conlude that 'Temp', 'Hours', and 'workingday' are important features that we'll see during our model training.</p>
+<h3 id="algorithms-and-techniques">Algorithms and Techniques</h3>
+<p>We'll be exploring various learning techniques for this regression problem:</p>
+<ul>
+<li>Linear Regression</li>
+<li>Decision Tree</li>
+<li>Random forest (bagging)</li>
+<li>Gradient Boosted Regression Tree (boosting)</li>
+</ul>
+<h2 id="iii.-methodology">III. Methodology</h2>
+<h3 id="data-preprocessing">Data Preprocessing</h3>
+<h4 id="transformation">Transformation</h4>
+<p>There are some columns that require specific type casting or transformations to ensure correct usage. Furthermore, as noted earlier, some of the columns need to be excluded to avoid leakage of the response variable in the predictors. These transformations are documented in the code below.</p>
+<pre><code># Create the dataframe bikes for analysis
+# Identify which columns are continuous vs categorical variables
+# Do not include columns - casual, registered and dteday based on observations
+
+continuous_features = [&#39;temp&#39;, &#39;atemp&#39;, &#39;hum&#39;, &#39;windspeed&#39;]
+categorical_features = [&#39;season&#39;, &#39;mnth&#39;, &#39;hr&#39;, &#39;season&#39;, &#39;yr&#39;, &#39;holiday&#39;,
+                        &#39;weekday&#39;, &#39;workingday&#39;, &#39;weathersit&#39;]
+output = [&#39;cnt&#39;]
+bikes = bikes[continuous_features + categorical_features + output]
+for cat in categorical_features:
+    bikes[cat] = bikes[cat].astype(&#39;category&#39;)</code></pre>
+<h4 id="dummy-encoding">Dummy encoding</h4>
+<p>Linear regression requires all columns to be of continuous types. Since we have categorical features, the best approach is to encode them to integer columns using dummy encoding using <code>pandas.get_dummies</code> function:</p>
+<pre><code># Create a new dataframe that is a copy of original
+bikes_encoded = bikes.copy()
+
+# Create dummy columns for each categorical variable and update in the new dataframe
+for cat in categorical_features:
+    dummy_cols = pd.get_dummies(bikes_encoded[cat], prefix=cat)
+
+    # Remove the original categorical variable from the new dataframe
+    bikes_encoded.drop(cat, axis=1, inplace=True)
+
+    # Add the dummy variables to the new dataframe
+    bikes_encoded = pd.concat([bikes_encoded, dummy_cols], axis=1)</code></pre>
+<h3 id="implementation">Implementation</h3>
+<h4 id="libraries">Libraries</h4>
+<p>Popular machine learning library scikit-learn was used to execute the algorithms explored in this work. Scikit-learn provides a range of supervised and unsupervised learning algorithms via a consistent interface in Python.</p>
+<p>It is licensed under a permissive simplified BSD license and is distributed under many Linux distributions, encouraging academic and commercial use.</p>
+<p>The library is built upon the SciPy (Scientific Python) that must be installed before you can use scikit-learn. This stack that includes:</p>
+<ul>
+<li>NumPy: Base n-dimensional array package</li>
+<li>SciPy: Fundamental library for scientific computing</li>
+<li>Matplotlib: Comprehensive 2D/3D plotting</li>
+<li>IPython: Enhanced interactive console</li>
+<li>Sympy: Symbolic mathematics</li>
+<li>Pandas: Data structures and analysis</li>
+</ul>
+<p>The vision for the library is a level of robustness and support required for use in production systems. This means a deep focus on concerns such as ease of use, code quality, collaboration, documentation and performance. Although the interface is Python, c-libraries are leverage for performance such as numpy for arrays and matrix operations, LAPACK, LibSVM and the careful use of cython.</p>
+<p>The metric functions used in this work were implemented in Python, using the <code>numpy</code> library. The implementation was straightforward and documented below:</p>
+<pre><code>def rae(true_val, pred_val):
+    true_mean = true_val.mean()
+    diff = np.abs(true_val - pred_val)
+    return diff.sum() / np.abs(true_val - true_mean).sum()
+
+def rrse(true_val, pred_val):
+    true_mean = true_val.mean()
+    diff = np.square(true_val - pred_val)
+    return diff.sum() / np.square(true_val - true_mean).sum()
+
+def cc(true_val, pred_val):
+    true_mean, pred_mean = true_val.mean(), pred_val.mean()
+    spa = ((true_val - true_mean) * (pred_val - pred_mean)).sum()
+    sa = np.square(true_val - true_mean).sum()
+    sp = np.square(pred_val - pred_mean).sum()
+    return spa / np.sqrt(sa * sp)</code></pre>
+<p>Furthermore, various data transformations including splitting data for train and test were performed using the popular Pandas library [3]. Libraries used for plotting were <code>seaborn</code>[4] and <code>matplotlib</code>[5].</p>
+<p>Data extraction</p>
+<h4 id="modeling-methods">Modeling methods</h4>
+<p>For each model, we employ <code>scikit-learn</code> functions that follow a set pattern: initialize the model and then fit using the data.</p>
+<ul>
+<li>Linear regression</li>
+</ul>
+<pre><code>----------------------------------------------
+from sklearn.linear_model import LinearRegression
+
+# Initiate Model
+lin_regr = LinearRegression(normalize=True)
+# Train the model
+lin_regr.fit(train_X_encoded, train_y_encoded)
+----------------------------------------------</code></pre>
+<ul>
+<li>Decision Tree</li>
+</ul>
+<pre><code>----------------------------------------------
+from sklearn.tree import DecisionTreeRegressor
+
+# Initiate Model
+dec_tree = DecisionTreeRegressor(max_depth=15)
+
+# Train the model
+dec_tree.fit(train_X, train_y)
+----------------------------------------------</code></pre>
+<ul>
+<li>Gradient Boosted Trees</li>
+</ul>
+<pre><code>----------------------------------------------
+from sklearn.ensemble import GradientBoostingRegressor
+
+# Initiate Model
+gbr = GradientBoostingRegressor(n_estimators=1000,
+                                max_depth=3,
+                                learning_rate=0.8)
+# Train the model
+gbr.fit(train_X, train_y)
+----------------------------------------------</code></pre>
+<ul>
+<li>Random Forest</li>
+</ul>
+<pre><code>----------------------------------------------
+from sklearn.ensemble import RandomForestRegressor
+
+# Initiate Model
+rand_forest = RandomForestRegressor(n_estimators=20, max_depth=15)
+# Train the model
+rand_forest.fit(train_X, train_y)
+----------------------------------------------</code></pre>
+<h3 id="refinement">Refinement</h3>
+<p>It's not clear how many trees should be included in the Random Forest. To make a structured decision, we employ cross validation to perform a grid search across multiple number of trees.</p>
+<p>Specifically we try forests with 5 trees to 65 trees, as shown below.</p>
+<pre><code>----------------------------------------------
+from sklearn import model_selection
+from sklearn.ensemble import RandomForestRegressor
+
+# Specify parameters for 10-fold cross validation
+kfold = model_selection.KFold(n_splits=10,
+                              random_state=1)
+
+print &quot;\n----------------------------------------------&quot;
+print &quot;Average validation score:&quot;
+cv_mean_scores = []
+for n_trees in range(5, 71, 10):
+    # Initiate Model
+    rand_forest_cv = RandomForestRegressor(n_estimators=n_trees,
+                                            max_depth=20,
+                                            n_jobs=4)
+    # Calculate and print cross-validation score
+    results = model_selection.cross_val_score(rand_forest_cv, train_X, train_y, cv=kfold,
+                                              scoring=metrics.make_scorer(rae, greater_is_better=False))
+    print(&quot;For {0} trees is {1}&quot;.format(n_trees, results.mean()))
+    cv_mean_scores.append((n_trees, results.mean(), results.std()))
+
+----------------------------------------------</code></pre>
+<p>Results:</p>
+<pre><code>----------------------------------------------
+Average validation score:
+For 5 trees is -0.201763886736
+For 15 trees is -0.18777456281
+For 25 trees is -0.184363069995
+For 35 trees is -0.183164892377
+For 45 trees is -0.182607144176
+For 55 trees is -0.181847832758
+For 65 trees is -0.182103770565
+----------------------------------------------</code></pre>
+<p><img src="images/rf_cv_score.png" alt="CV results" width="800" /></p>
+<p>The cross validation results give the highest score for a forest with 55 trees. It is, however, important to note that the scores don't increase much after a certain point. To ensure we use a simple model (to avoid overfitting), while retaining good accuracy, we pick the simplest model that is within one standard deviation of the best model. Judging from the figure above, the forest with 25 trees fits the bill.</p>
+<!-- ()() -->
+<h2 id="iv.-results">IV. Results</h2>
+<h3 id="model-evaluation-and-validation">Model Evaluation and Validation</h3>
+<p>In this section we provide results and insights into each model.</p>
+<h4 id="linear-regression">Linear Regression</h4>
+<pre><code>----------------------------------------------
+Linear Regression Model details:
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=True)
+
+-----------------------------------------------------------------
+R-Square for training data: 0.537756866344
+
+-----------------------------------------------------------------
+Summary of predictions for test data:
+
+        Prediction
+count  3476.000000
+mean    189.386651
+std     147.605852
+min    -194.500000
+25%      78.500000
+50%     191.750000
+75%     295.000000
+max     613.500000
+
+-----------------------------------------------------------------
+MAE for training data:  74.9524203409
+MAE for test data:      75.9496547756
+
+-----------------------------------------------------------------
+RAE for training data:  0.52756830333
+RAE for test data:      0.528806780634
+
+-----------------------------------------------------------------
+RRSE for training data: 0.313859295957
+RRSE for test data:     0.317508260403
+
+-----------------------------------------------------------------
+CC for training data:   0.828348632183
+CC for test data:       0.826556976405
+
+-----------------------------------------------------------------</code></pre>
+<p>Analysis for Linear Regression:</p>
+<ul>
+<li>Linear regression prediction includes negative output (which is not valid for <code>cnt</code>)</li>
+<li>R2 is close to 0.5, which implies that only 50% of the variance in the data is modeled by the regressor.</li>
+<li>Next step: Try other models to predict <code>cnt</code>, like Decision Tree to model greater variability in the data.</li>
+</ul>
+<h4 id="decision-tree">Decision tree:</h4>
+<pre><code>----------------------------------------------
+Decision Tree Model details:
+DecisionTreeRegressor(criterion=&#39;mse&#39;, max_depth=15, max_features=None,
+           max_leaf_nodes=None, min_impurity_split=1e-07,
+           min_samples_leaf=1, min_samples_split=2,
+           min_weight_fraction_leaf=0.0, presort=False, random_state=None,
+           splitter=&#39;best&#39;)
+
+-----------------------------------------------------------------
+Summary of predictions for test data:
+
+        Prediction
+count  3476.000000
+mean    193.543441
+std     179.346887
+min       1.000000
+25%      41.000000
+50%     153.000000
+75%     290.000000
+max     919.000000
+
+-----------------------------------------------------------------
+MAE for training data:  9.54837085521
+MAE for test data:      33.8699654776
+
+-----------------------------------------------------------------
+RAE for training data:  0.0672082074032
+RAE for test data:      0.235822894222
+
+-----------------------------------------------------------------
+RRSE for training data: 0.0132821892645
+RRSE for test data:     0.103842051796
+
+-----------------------------------------------------------------
+CC for training data:   0.993336714217
+CC for test data:       0.947327629461
+
+-----------------------------------------------------------------</code></pre>
+<p>Let's visualize the decision tree to get an idea of how it splits on features: <img src="images/dtree.png" alt="Decision Tree" width="800" /></p>
+<p>Analysis for Decision Tree:</p>
+<ul>
+<li>Performance for decision tree is much better than linear regression (higher CC and lower error)</li>
+<li>The top of the tree contains nodes that primarily use <code>hr</code>, <code>temp</code>, <code>workingday</code> as the split features. This indicates the importance of these particular features.</li>
+<li>There are signs of overfitting since the training error is low but the test error is still reasonably high. We can use ensemble techniques to overcome the overfitting effects.</li>
+</ul>
+<!-- ()() -->
+<h4 id="gradient-boosted-trees">Gradient Boosted Trees</h4>
+<pre><code>----------------------------------------------
+Gradient Boosted Regression Trees:
+GradientBoostingRegressor(alpha=0.9, criterion=&#39;friedman_mse&#39;, init=None,
+             learning_rate=0.8, loss=&#39;ls&#39;, max_depth=3, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1000,
+             presort=&#39;auto&#39;, random_state=None, subsample=1.0, verbose=0,
+             warm_start=False)
+
+-----------------------------------------------------------------
+Summary of predictions for test data:
+
+        Prediction
+count  3476.000000
+mean    193.249137
+std     179.457494
+min    -165.000000
+25%      43.000000
+50%     156.000000
+75%     293.250000
+max     909.000000
+
+-----------------------------------------------------------------
+MAE for training data:  20.8884413436
+MAE for test data:      29.9496547756
+
+-----------------------------------------------------------------
+RAE for training data:  0.147027667802
+RAE for test data:      0.208527353676
+
+-----------------------------------------------------------------
+RRSE for training data: 0.029217618587
+RRSE for test data:     0.0605477754712
+
+-----------------------------------------------------------------
+CC for training data:   0.98529362356
+CC for test data:       0.96935713163
+
+-----------------------------------------------------------------</code></pre>
+<p>Analysis for Gradient Boosted Trees:</p>
+<ul>
+<li>The test error has decreased, with the training and test error closer to each other. That indicates a drop in variance (overfitting).</li>
+</ul>
+<h4 id="random-forest">Random Forest</h4>
+<pre><code>----------------------------------------------
+Random Forest Model with Cross-Validation details:
+RandomForestRegressor(bootstrap=True, criterion=&#39;mse&#39;, max_depth=20,
+           max_features=&#39;auto&#39;, max_leaf_nodes=None,
+           min_impurity_split=1e-07, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           n_estimators=25, n_jobs=3, oob_score=False, random_state=None,
+           verbose=0, warm_start=False)
+
+-----------------------------------------------------------------
+Summary of predictions for test data:
+
+        Prediction
+count  3476.000000
+mean    193.671461
+std     175.455396
+min       1.000000
+25%      47.000000
+50%     156.500000
+75%     287.000000
+max     918.000000
+
+-----------------------------------------------------------------
+MAE for training data:      10.3020930734
+MAE for test data:      26.5261795167
+
+-----------------------------------------------------------------
+RAE for training data:      0.0725134390427
+RAE for test data:      0.184691077717
+
+-----------------------------------------------------------------
+RRSE for training data:     0.00912075968267
+RRSE for test data:     0.058918498909
+
+-----------------------------------------------------------------
+CC for training data:       0.995516131278
+CC for test data:       0.970138513161
+
+-----------------------------------------------------------------</code></pre>
+<h3 id="justification">Justification</h3>
+<p>Given below is a comparison of the performance of four models on the test data set.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Modeling technique</th>
+<th>mae</th>
+<th>rae</th>
+<th>rrse</th>
+<th>cc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linear regression</td>
+<td>76.726</td>
+<td>0.5403</td>
+<td>0.3248</td>
+<td>0.8217</td>
+</tr>
+<tr class="even">
+<td>Decision Tree</td>
+<td>35.177</td>
+<td>0.2477</td>
+<td>0.1177</td>
+<td>0.9410</td>
+</tr>
+<tr class="odd">
+<td>Gradient Boosted Tree</td>
+<td>29.9496</td>
+<td>0.2085</td>
+<td>0.06054</td>
+<td>0.9693</td>
+</tr>
+<tr class="even">
+<td>Random Forest</td>
+<td>26.63</td>
+<td>0.1876</td>
+<td>0.06549</td>
+<td>0.9667</td>
+</tr>
+</tbody>
+</table>
+<p><img src="images/all_model_comparison.png" alt="Model comparison" width="1000" /></p>
+<p>The figure above compares the performance of the four models on the training (cyan) and testing (red) datasets. The x-axis represents the true count of each data point and the y-axis represents the prediction for that point. The ideal model would have all points on the diagonal (blue line). Further, since this is a count, all points should be positive, implying that the ideal model should have all prediction points above the x-axis (black line).</p>
+<p>We can see from the comparison figure that linear regression performs poorly when compared to our ideal model. The points have high variability along the x-axis, with no prediction going over about 600. The linear model also makes the egregious mistake of predicting negative counts (min value of about -200).</p>
+<p>Compared to the linear model, decision tree makes good predictions. Most of the points lie along the diagonal, but have considerable variability around that line. The test data points have higher variance than train, again an indicative of overfitting.</p>
+<p>Random forest and Gradient Boosted Trees show better performance than Decision Tree with lower variability around the diagonal line. The train and test performance is comparable in either case. The boosting method, however, also falls prey to predicting negative counts for low cardinality rentals. Considering this conspicuous inaccuracy, we can conclude that random forest is the best model for this problem among the four tried in this work.</p>
+<!-- ()() -->
+<h2 id="v.-conclusion">V. Conclusion</h2>
+<h3 id="free-form-visualization">Free-Form Visualization</h3>
+<p><img src="images/feat_imp.png" alt="Feature importance" width="800" /></p>
+<p>The figure above gives the importance of each feature used in the final Random Forest model. The top five important features in descending order are <code>hr</code> (which hour was the bike rented), <code>temp</code> (temperature at the time), <code>year</code> (rental year), <code>workingday</code> (whether the day was a working day or not) and <code>hum</code> (humidity). The fact that <code>hr</code> and <code>temp</code> played the most important part was also apparent from the swarm plot in the 'Exploratory Visualization' section.</p>
+<!-- ()() -->
+<h3 id="reflection">Reflection</h3>
+<p>In the world of bicycle research, data collection is often both challenging and expensive. Additionally, research regarding the relationship between weather and cycling is typically conducted based on daily averages and not necessarily at the precise time that the trip was taken. The latter is more meaningful as weather can vary throughout the day. Through data collection technology embedded within bikeshare systems, the ability to understand different impacts on at least bikeshare trips is possible. The weather of Washington, DC contains almost all variations. It rains and snows, has cold days and hot days and can be excessively humid at times. This analysis helps to better document the relative impact of various weather conditions on bikesharing trips in Washington, DC, considering the precise weather observation at the time the trip was taken. The results of this analysis show that fewer trips are made in rain, high humidity, high wind speeds, and low temperatures, while trips increase with higher temperatures especially in the evenings.</p>
+<h3 id="improvement">Improvement</h3>
+<p>From our analysis, we concluded that Random Forest model worked better than Gradient Boosted Trees. In practice, Gradient Boosted Trees provide good results, but require fine tuning of several hyperparameters including the number of trees, the depth (or number of leaves), and the shrinkage (or learning rate). The model in this analysis was tuned significantly which could explain some of the negative predictions. The author believes boosted trees would yield best results if tuned correctly.</p>
+<p>The <code>year</code> feature being important is surprising, but understandable since this is data for limited years - there could be year-specific trends, which might get washed out if the analysis is run on multiple years. Re-running this analysis on a bigger dataset would be an interesting exercise.</p>
+<p>An additional analysis that was outside the scope of this study is to embed the data, with metro and other transportation information. Bike rentals are expected to have a strong correlation with the availability of public transportation systems. (Example: do bike rentals increase in evening if public transportation becomes less frequent?).</p>
+<h3 id="references">References</h3>
+<p>[1] Fanaee-T, H. &amp; Gama, J. Prog Artif Intell (2014) 2: 113. doi:10.1007/s13748-013-0040-3 [2] Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.</p>
+<hr />
+</body>
+</html>
